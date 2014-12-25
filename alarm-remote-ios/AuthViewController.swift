@@ -12,7 +12,9 @@ class AuthViewController: UIViewController {
 
     @IBOutlet weak var userNameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var authTokenField: UITextField!
+    @IBOutlet weak var accessTokenField: UITextField!
+    
+    let authUrl:NSURL = NSURL(string: "http://api.weecode.com/alarm/v1/users")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,13 +24,39 @@ class AuthViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
+    @IBAction func getTokenPressed(sender: AnyObject) {
+        var request = NSMutableURLRequest(URL: authUrl, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: 5)
+        var response: NSURLResponse?
+        var error: NSError?
+        
+        let jsonString = "{\"user_id\":\"\(userNameField.text)\", \"password\":\"\(passwordField.text)\"}"
+        request.HTTPBody = jsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
+        request.HTTPMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        var result:NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse: &response, error: &error)
+        
+        if let httpResponse = response as? NSHTTPURLResponse {
+            if (httpResponse.statusCode == 200) {
+                let jsonDict = NSJSONSerialization.JSONObjectWithData(result!, options: nil, error: &error) as NSDictionary
+                if let accessToken = jsonDict.valueForKey("accessToken") as? String {
+                    accessTokenField.text = accessToken
+                }
+            } else {
+                println("HTTP response: \(httpResponse.statusCode)")
+            }
+        } else {
+            println("No HTTP response")
+        }
+    }
+    
     @IBAction func donePressed(sender: AnyObject) {
         let defaults = NSUserDefaults.standardUserDefaults()
         
-        let authToken = authTokenField.text
+        let authToken = accessTokenField.text
         
         if (!authToken.isEmpty) {
-            defaults.setValue(authTokenField.text, forKey: Constants.kDefaultsAuthKey)
+            defaults.setValue(accessTokenField.text, forKey: Constants.kDefaultsAuthKey)
         
             self.dismissViewControllerAnimated(true, completion: nil)
         }

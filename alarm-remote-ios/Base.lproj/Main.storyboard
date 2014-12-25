@@ -27,19 +27,28 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zvr-lY-mNf">
+                                <rect key="frame" x="265" y="228" width="70" height="30"/>
+                                <state key="normal" title="Get Token">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getTokenPressed:" destination="bxt-49-fM0" eventType="touchUpInside" id="t3Y-QK-cSA"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFw-U6-lMZ">
-                                <rect key="frame" x="292" y="228" width="16" height="20.5"/>
+                                <rect key="frame" x="292" y="286" width="16" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="auth token" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5VZ-ET-SJd">
-                                <rect key="frame" x="120" y="276" width="360" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="access token" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5VZ-ET-SJd">
+                                <rect key="frame" x="120" y="334" width="360" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TI1-1d-hkz">
-                                <rect key="frame" x="281.5" y="362.5" width="37" height="30"/>
+                                <rect key="frame" x="281" y="420" width="37" height="30"/>
                                 <state key="normal" title="Done">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -51,12 +60,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="k7q-8i-rLU" firstAttribute="width" secondItem="xk6-GH-RIN" secondAttribute="width" multiplier="0.6" id="6p9-E0-tcc"/>
+                            <constraint firstItem="zvr-lY-mNf" firstAttribute="top" secondItem="Ub5-SG-y4e" secondAttribute="bottom" constant="28" id="8sd-fz-wv2"/>
                             <constraint firstItem="Ub5-SG-y4e" firstAttribute="top" secondItem="k7q-8i-rLU" secondAttribute="bottom" constant="28" id="9ap-Dr-KId"/>
+                            <constraint firstAttribute="centerX" secondItem="zvr-lY-mNf" secondAttribute="centerX" id="C8U-hO-SRh"/>
                             <constraint firstAttribute="centerX" secondItem="5VZ-ET-SJd" secondAttribute="centerX" id="JmU-zL-nkt"/>
                             <constraint firstItem="TI1-1d-hkz" firstAttribute="top" secondItem="5VZ-ET-SJd" secondAttribute="bottom" constant="56" id="KFt-Qt-1zA"/>
                             <constraint firstItem="k7q-8i-rLU" firstAttribute="width" secondItem="5VZ-ET-SJd" secondAttribute="width" id="NRj-1X-9J8"/>
                             <constraint firstAttribute="centerX" secondItem="k7q-8i-rLU" secondAttribute="centerX" id="Oxn-Wc-O4M"/>
-                            <constraint firstItem="FFw-U6-lMZ" firstAttribute="top" secondItem="Ub5-SG-y4e" secondAttribute="bottom" constant="28" id="Q9P-Qq-FoV"/>
+                            <constraint firstItem="FFw-U6-lMZ" firstAttribute="top" secondItem="zvr-lY-mNf" secondAttribute="bottom" constant="28" id="PMi-9z-CkU"/>
                             <constraint firstAttribute="centerX" secondItem="FFw-U6-lMZ" secondAttribute="centerX" id="SIo-MS-4h5"/>
                             <constraint firstAttribute="centerX" secondItem="Ub5-SG-y4e" secondAttribute="centerX" id="UC2-79-Vt7"/>
                             <constraint firstItem="Ub5-SG-y4e" firstAttribute="width" secondItem="k7q-8i-rLU" secondAttribute="width" id="cjH-qX-wML"/>
@@ -66,7 +77,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="authTokenField" destination="5VZ-ET-SJd" id="o3L-wS-uh5"/>
+                        <outlet property="accessTokenField" destination="5VZ-ET-SJd" id="WQw-fA-sno"/>
                         <outlet property="passwordField" destination="Ub5-SG-y4e" id="isU-qB-1oB"/>
                         <outlet property="userNameField" destination="k7q-8i-rLU" id="Ri5-mw-kzf"/>
                     </connections>
