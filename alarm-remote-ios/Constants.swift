@@ -8,4 +8,5 @@
 
 struct Constants {
     static let kDefaultsAuthKey = "kDefaultsAuthKey"
+    static let kDefaultsUsernameKey = "kDefaultsUsernameKey"
 }

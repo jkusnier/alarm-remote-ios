@@ -46,8 +46,11 @@
                                 <rect key="frame" x="120" y="334" width="360" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="bxt-49-fM0" id="yIb-Rf-eUS"/>
+                                </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TI1-1d-hkz">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TI1-1d-hkz">
                                 <rect key="frame" x="281" y="420" width="37" height="30"/>
                                 <state key="normal" title="Done">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -78,6 +81,7 @@
                     </view>
                     <connections>
                         <outlet property="accessTokenField" destination="5VZ-ET-SJd" id="WQw-fA-sno"/>
+                        <outlet property="doneButton" destination="TI1-1d-hkz" id="oeU-x1-DSM"/>
                         <outlet property="passwordField" destination="Ub5-SG-y4e" id="isU-qB-1oB"/>
                         <outlet property="userNameField" destination="k7q-8i-rLU" id="Ri5-mw-kzf"/>
                     </connections>

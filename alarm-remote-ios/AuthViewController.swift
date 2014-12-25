@@ -9,16 +9,22 @@
 import UIKit
 import PKHUD
 
-class AuthViewController: UIViewController {
+class AuthViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var userNameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var accessTokenField: UITextField!
+    @IBOutlet weak var doneButton: UIButton!
     
     let authUrl:NSURL = NSURL(string: "http://api.weecode.com/alarm/v1/users")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let userName:NSString? = defaults.valueForKey(Constants.kDefaultsUsernameKey) as? NSString {
+            userNameField.text = userName
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,7 +51,11 @@ class AuthViewController: UIViewController {
             if (httpResponse.statusCode == 200) {
                 let jsonDict = NSJSONSerialization.JSONObjectWithData(result!, options: nil, error: &error) as NSDictionary
                 if let accessToken = jsonDict.valueForKey("accessToken") as? String {
-                    accessTokenField.text = accessToken
+                    let defaults = NSUserDefaults.standardUserDefaults()
+                    defaults.setValue(userNameField.text, forKey: Constants.kDefaultsUsernameKey)
+                    
+                    self.accessTokenField.text = accessToken
+                    self.doneButton.enabled = true
                 }
             } else {
                 println("HTTP response: \(httpResponse.statusCode)")
@@ -62,14 +72,30 @@ class AuthViewController: UIViewController {
     }
     
     @IBAction func donePressed(sender: AnyObject) {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
         let authToken = accessTokenField.text
         
         if (!authToken.isEmpty) {
+            let defaults = NSUserDefaults.standardUserDefaults()
             defaults.setValue(accessTokenField.text, forKey: Constants.kDefaultsAuthKey)
         
             self.dismissViewControllerAnimated(true, completion: nil)
         }
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if (textField == self.accessTokenField) {
+            let testString = (textField.text as NSString).stringByReplacingCharactersInRange(range, withString: string)
+            self.doneButton.enabled = !testString.isEmpty
+        }
+        
+        return true;
+    }
+    
+    func textFieldShouldClear(textField: UITextField) -> Bool {
+        if (textField == self.accessTokenField) {
+            self.doneButton.enabled = false
+        }
+        
+        return true;
     }
 }
