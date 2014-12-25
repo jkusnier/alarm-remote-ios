@@ -26,6 +26,27 @@
 			remoteGlobalIDString = 9600C7E51A4B182F00263E81;
 			remoteInfo = "alarm-remote-ios";
 		};
+		96C18ED31A4CC68400A17BB8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96C18ECE1A4CC68400A17BB8 /* PKHUD.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F99631FC19514FAC001F73CA;
+			remoteInfo = "PKHUD Demo";
+		};
+		96C18ED51A4CC68400A17BB8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96C18ECE1A4CC68400A17BB8 /* PKHUD.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F996321E19514FD8001F73CA;
+			remoteInfo = PKHUD;
+		};
+		96C18ED71A4CC68E00A17BB8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96C18ECE1A4CC68400A17BB8 /* PKHUD.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F996321D19514FD8001F73CA;
+			remoteInfo = PKHUD;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +63,7 @@
 		9600C8041A4B182F00263E81 /* alarm_remote_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alarm_remote_iosTests.swift; sourceTree = "<group>"; };
 		9600C80E1A4B246D00263E81 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9600C8101A4B26A700263E81 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		96C18ECE1A4CC68400A17BB8 /* PKHUD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PKHUD.xcodeproj; path = PKHUD/PKHUD.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +87,7 @@
 		9600C7DD1A4B182E00263E81 = {
 			isa = PBXGroup;
 			children = (
+				96C18ECE1A4CC68400A17BB8 /* PKHUD.xcodeproj */,
 				9600C7E81A4B182F00263E81 /* alarm-remote-ios */,
 				9600C8011A4B182F00263E81 /* alarm-remote-iosTests */,
 				9600C7E71A4B182F00263E81 /* Products */,
@@ -121,6 +144,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		96C18ECF1A4CC68400A17BB8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				96C18ED41A4CC68400A17BB8 /* PKHUD Demo.app */,
+				96C18ED61A4CC68400A17BB8 /* PKHUD.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +167,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				96C18ED81A4CC68E00A17BB8 /* PBXTargetDependency */,
 			);
 			name = "alarm-remote-ios";
 			productName = "alarm-remote-ios";
@@ -188,6 +221,12 @@
 			mainGroup = 9600C7DD1A4B182E00263E81;
 			productRefGroup = 9600C7E71A4B182F00263E81 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 96C18ECF1A4CC68400A17BB8 /* Products */;
+					ProjectRef = 96C18ECE1A4CC68400A17BB8 /* PKHUD.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				9600C7E51A4B182F00263E81 /* alarm-remote-ios */,
@@ -195,6 +234,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		96C18ED41A4CC68400A17BB8 /* PKHUD Demo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "PKHUD Demo.app";
+			remoteRef = 96C18ED31A4CC68400A17BB8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		96C18ED61A4CC68400A17BB8 /* PKHUD.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PKHUD.framework;
+			remoteRef = 96C18ED51A4CC68400A17BB8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9600C7E41A4B182F00263E81 /* Resources */ = {
@@ -244,6 +300,11 @@
 			isa = PBXTargetDependency;
 			target = 9600C7E51A4B182F00263E81 /* alarm-remote-ios */;
 			targetProxy = 9600C7FF1A4B182F00263E81 /* PBXContainerItemProxy */;
+		};
+		96C18ED81A4CC68E00A17BB8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PKHUD;
+			targetProxy = 96C18ED71A4CC68E00A17BB8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

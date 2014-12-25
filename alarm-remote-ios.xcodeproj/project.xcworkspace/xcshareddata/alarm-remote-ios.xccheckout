@@ -10,6 +10,8 @@
 	<string>alarm-remote-ios</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>4EA48C4418C0D37C936EB709C50F03661DB187D9</key>
+		<string>https://github.com/pkluz/PKHUD.git</string>
 		<key>A211C8F95C50F7FE8953B496A5033A3D236DA0C1</key>
 		<string>https://github.com/jkusnier/alarm-remote-ios.git</string>
 	</dict>
@@ -17,6 +19,8 @@
 	<string>alarm-remote-ios.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>4EA48C4418C0D37C936EB709C50F03661DB187D9</key>
+		<string>../../PKHUD/</string>
 		<key>A211C8F95C50F7FE8953B496A5033A3D236DA0C1</key>
 		<string>../..</string>
 	</dict>
@@ -35,6 +39,14 @@
 			<string>A211C8F95C50F7FE8953B496A5033A3D236DA0C1</string>
 			<key>IDESourceControlWCCName</key>
 			<string>alarm-remote-ios</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4EA48C4418C0D37C936EB709C50F03661DB187D9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PKHUD</string>
 		</dict>
 	</array>
 </dict>

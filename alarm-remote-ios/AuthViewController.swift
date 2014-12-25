@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 class AuthViewController: UIViewController {
 
@@ -25,6 +26,9 @@ class AuthViewController: UIViewController {
     }
 
     @IBAction func getTokenPressed(sender: AnyObject) {
+        HUDController.sharedController.contentView = HUDContentView.ProgressView()
+        HUDController.sharedController.show()
+        
         var request = NSMutableURLRequest(URL: authUrl, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: 5)
         var response: NSURLResponse?
         var error: NSError?
@@ -35,7 +39,8 @@ class AuthViewController: UIViewController {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         var result:NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse: &response, error: &error)
-        
+
+        HUDController.sharedController.hide()
         if let httpResponse = response as? NSHTTPURLResponse {
             if (httpResponse.statusCode == 200) {
                 let jsonDict = NSJSONSerialization.JSONObjectWithData(result!, options: nil, error: &error) as NSDictionary
@@ -44,9 +49,15 @@ class AuthViewController: UIViewController {
                 }
             } else {
                 println("HTTP response: \(httpResponse.statusCode)")
+                let alert = UIAlertController(title: "Error Authenticating", message: "Check Credentials", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
             }
         } else {
             println("No HTTP response")
+            let alert = UIAlertController(title: "Error Authenticating", message: "Check Credentials", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
         }
     }
     
