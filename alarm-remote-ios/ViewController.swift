@@ -90,8 +90,11 @@ class ViewController: UIViewController {
                                 if let dict = item as? NSDictionary {
                                     let m_id = dict.valueForKey("_id") as? String
                                     let m_name = dict.valueForKey("name") as? String
+                                    let m_zip = dict.valueForKey("zip") as? Int
+                                    let m_timeZone = dict.valueForKey("timeZone") as? Int
+                                    let m_owner = dict.valueForKey("owner") as? String
                                     
-                                    self.devices[m_id!] = ["_id": m_id, "name": m_name]
+                                    self.devices[m_id!] = ["_id": m_id, "name": m_name, "zip": m_zip, "timeZone": m_timeZone, "owner": m_owner]
                                 }
                             }
                         }
