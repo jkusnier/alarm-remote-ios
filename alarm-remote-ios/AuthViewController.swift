@@ -81,25 +81,30 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
             HUDController.sharedController.contentView = HUDContentView.ProgressView()
             HUDController.sharedController.show()
             
-            let m_authUrl = authUrl.stringByAppendingFormat("?access_token=%@", accessToken)
-            let jsonData = NSData(contentsOfURL: NSURL(string: m_authUrl)!)
-            
-            HUDController.sharedController.hide()
-            if (jsonData != nil) {
-                var error: NSError?
-                let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData!, options: nil, error: &error) as NSDictionary
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
+                let m_authUrl = self.authUrl.stringByAppendingFormat("?access_token=%@", accessToken)
+                let jsonData = NSData(contentsOfURL: NSURL(string: m_authUrl)!)
                 
-                if (self.userNameField.text == jsonDict.valueForKey("_id") as? String) {
-                    let defaults = NSUserDefaults.standardUserDefaults()
-                    defaults.setValue(accessToken, forKey: Constants.kDefaultsAuthKey)
+                dispatch_async(dispatch_get_main_queue(), {
+                    HUDController.sharedController.hide()
 
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                } else {
-                    let alert = UIAlertController(title: "Error Authenticating", message: "Auth Token is Invalid", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
-                    self.presentViewController(alert, animated: true, completion: nil)
-                }
-            }
+                    if (jsonData != nil) {
+                        var error: NSError?
+                        let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData!, options: nil, error: &error) as NSDictionary
+                        
+                        if (self.userNameField.text == jsonDict.valueForKey("_id") as? String) {
+                            let defaults = NSUserDefaults.standardUserDefaults()
+                            defaults.setValue(accessToken, forKey: Constants.kDefaultsAuthKey)
+                            
+                            self.dismissViewControllerAnimated(true, completion: nil)
+                        } else {
+                            let alert = UIAlertController(title: "Error Authenticating", message: "Auth Token is Invalid", preferredStyle: UIAlertControllerStyle.Alert)
+                            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+                            self.presentViewController(alert, animated: true, completion: nil)
+                        }
+                    }
+                })
+            });
         }
     }
     
