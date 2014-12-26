@@ -51,12 +51,21 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TI1-1d-hkz">
-                                <rect key="frame" x="281" y="408" width="37" height="30"/>
+                                <rect key="frame" x="120" y="408" width="360" height="30"/>
                                 <state key="normal" title="Done">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="donePressed:" destination="bxt-49-fM0" eventType="touchUpInside" id="lTQ-VL-kLi"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WRC-OS-s9T">
+                                <rect key="frame" x="120" y="408" width="48" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelPressed:" destination="bxt-49-fM0" eventType="touchUpInside" id="Dqd-5f-BZ9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -71,16 +80,21 @@
                             <constraint firstItem="k7q-8i-rLU" firstAttribute="width" secondItem="5VZ-ET-SJd" secondAttribute="width" id="NRj-1X-9J8"/>
                             <constraint firstAttribute="centerX" secondItem="k7q-8i-rLU" secondAttribute="centerX" id="Oxn-Wc-O4M"/>
                             <constraint firstItem="FFw-U6-lMZ" firstAttribute="top" secondItem="zvr-lY-mNf" secondAttribute="bottom" constant="28" id="PMi-9z-CkU"/>
+                            <constraint firstAttribute="centerX" secondItem="TI1-1d-hkz" secondAttribute="centerX" priority="900" id="SGz-E0-N9R"/>
                             <constraint firstAttribute="centerX" secondItem="FFw-U6-lMZ" secondAttribute="centerX" id="SIo-MS-4h5"/>
+                            <constraint firstItem="TI1-1d-hkz" firstAttribute="trailing" secondItem="5VZ-ET-SJd" secondAttribute="trailing" id="TrG-dk-Qrl"/>
                             <constraint firstAttribute="centerX" secondItem="Ub5-SG-y4e" secondAttribute="centerX" id="UC2-79-Vt7"/>
                             <constraint firstItem="Ub5-SG-y4e" firstAttribute="width" secondItem="k7q-8i-rLU" secondAttribute="width" id="cjH-qX-wML"/>
                             <constraint firstItem="k7q-8i-rLU" firstAttribute="top" secondItem="xk6-GH-RIN" secondAttribute="top" constant="100" id="e49-Tw-oN6"/>
-                            <constraint firstAttribute="centerX" secondItem="TI1-1d-hkz" secondAttribute="centerX" id="kg5-vJ-Aog"/>
+                            <constraint firstItem="WRC-OS-s9T" firstAttribute="top" secondItem="5VZ-ET-SJd" secondAttribute="bottom" constant="56" id="g4e-E3-61l"/>
+                            <constraint firstItem="WRC-OS-s9T" firstAttribute="leading" secondItem="5VZ-ET-SJd" secondAttribute="leading" id="hkZ-Tg-cRo"/>
                             <constraint firstItem="5VZ-ET-SJd" firstAttribute="top" secondItem="FFw-U6-lMZ" secondAttribute="bottom" constant="28" id="ugn-yM-9MG"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="accessTokenField" destination="5VZ-ET-SJd" id="WQw-fA-sno"/>
+                        <outlet property="cancelButton" destination="WRC-OS-s9T" id="SSl-aR-N2T"/>
+                        <outlet property="centerDoneConstraint" destination="SGz-E0-N9R" id="azP-0B-INE"/>
                         <outlet property="doneButton" destination="TI1-1d-hkz" id="oeU-x1-DSM"/>
                         <outlet property="passwordField" destination="Ub5-SG-y4e" id="isU-qB-1oB"/>
                         <outlet property="userNameField" destination="k7q-8i-rLU" id="Ri5-mw-kzf"/>
@@ -101,7 +115,25 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TXB-fc-gKn">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="365-0X-JWZ"/>
+                                    <barButtonItem title="Settings" id="QeB-2F-LaU">
+                                        <connections>
+                                            <segue destination="bxt-49-fM0" kind="presentation" id="l03-Ka-QqK"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="TXB-fc-gKn" secondAttribute="trailing" id="JYO-KE-Qmr"/>
+                            <constraint firstItem="TXB-fc-gKn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Wwe-JQ-j34"/>
+                            <constraint firstAttribute="bottom" secondItem="TXB-fc-gKn" secondAttribute="bottom" id="cVC-PQ-r8z"/>
+                        </constraints>
                     </view>
                     <connections>
                         <segue destination="bxt-49-fM0" kind="presentation" identifier="showAuth" id="fdu-kL-8Qp"/>
@@ -109,6 +141,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="437" y="420"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="l03-Ka-QqK"/>
+    </inferredMetricsTieBreakers>
 </document>

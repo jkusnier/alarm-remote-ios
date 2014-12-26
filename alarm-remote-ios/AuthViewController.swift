@@ -15,6 +15,9 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var accessTokenField: UITextField!
     @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+
+    @IBOutlet weak var centerDoneConstraint: NSLayoutConstraint!
     
     let authUrl:String = "http://api.weecode.com/alarm/v1/users"
     
@@ -23,10 +26,20 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
         
         let defaults = NSUserDefaults.standardUserDefaults()
         if let userName:NSString? = defaults.valueForKey(Constants.kDefaultsUsernameKey) as? NSString {
-            userNameField.text = userName
+            if userNameField != nil {
+                userNameField.text = userName
+            }
         }
         if let accessToken:NSString? = defaults.valueForKey(Constants.kDefaultsAccessTokenKey) as? NSString {
-            accessTokenField.text = accessToken
+            if accessToken != nil {
+                accessTokenField.text = accessToken
+                self.doneButton.enabled = true
+                self.cancelButton.hidden = false
+            }
+        }
+        
+        if !self.cancelButton.hidden {
+            self.centerDoneConstraint.active = false
         }
     }
 
@@ -75,6 +88,10 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
                 }
             })
         })
+    }
+    
+    @IBAction func cancelPressed(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func donePressed(sender: AnyObject) {
