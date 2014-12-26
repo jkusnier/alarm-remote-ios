@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     
     let defaults = NSUserDefaults.standardUserDefaults()
     
-    var devices:NSArray?
+    var devices = [String: [String: AnyObject?]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +86,14 @@ class ViewController: UIViewController {
                         if error != nil || jsonArr == nil {
                             showErrorAlert()
                         } else {
-                            self.devices = jsonArr
+                            for item in jsonArr! {
+                                if let dict = item as? NSDictionary {
+                                    let m_id = dict.valueForKey("_id") as? String
+                                    let m_name = dict.valueForKey("name") as? String
+                                    
+                                    self.devices[m_id!] = ["_id": m_id, "name": m_name]
+                                }
+                            }
                         }
                     } else {
                         showErrorAlert()
