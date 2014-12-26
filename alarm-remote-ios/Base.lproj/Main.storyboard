@@ -126,7 +126,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="365-0X-JWZ"/>
                                     <barButtonItem title="Settings" id="QeB-2F-LaU">
                                         <connections>
-                                            <segue destination="bxt-49-fM0" kind="presentation" id="l03-Ka-QqK"/>
+                                            <segue destination="bxt-49-fM0" kind="presentation" identifier="showAuthSettings" id="l03-Ka-QqK"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>

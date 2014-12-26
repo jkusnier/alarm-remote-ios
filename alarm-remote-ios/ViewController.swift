@@ -23,27 +23,39 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        topToolbarConstraint.constant = UIApplication.sharedApplication().statusBarFrame.height
+        self.topToolbarConstraint.constant = UIApplication.sharedApplication().statusBarFrame.height
         
-        topToolbar.items = [UIBarButtonItem(title: "Switch", style: .Bordered, target: nil, action: nil), UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil), UIBarButtonItem(title: "Edit", style: .Bordered, target: nil, action: nil)]
+        self.topToolbar.items = [UIBarButtonItem(title: "Switch", style: .Bordered, target: nil, action: nil), UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil), UIBarButtonItem(title: "Edit", style: .Bordered, target: nil, action: nil)]
         
         if defaults.stringForKey(Constants.kDefaultsAccessTokenKey) != nil {
-            updateDevices()
+            self.updateDevices()
         }
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
-        if (defaults.stringForKey(Constants.kDefaultsAccessTokenKey) == nil) {
-            performSegueWithIdentifier("showAuth", sender: self)
+        if (self.defaults.stringForKey(Constants.kDefaultsAccessTokenKey) == nil) {
+            self.performSegueWithIdentifier("showAuth", sender: self)
         }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if contains(["showAuth", "showAuthSettings"], segue.identifier!) {
+            if let destView = segue.destinationViewController as? AuthViewController {
+                destView.presentingView = self
+            }
+        }
+    }
+    
+    func dismissAuthSettings() {
+        self.dismissViewControllerAnimated(true, completion: {
+            self.updateDevices()
+        })
     }
     
     func updateDevices() {

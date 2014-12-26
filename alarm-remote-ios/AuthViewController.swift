@@ -19,6 +19,8 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var centerDoneConstraint: NSLayoutConstraint!
     
+    var presentingView:ViewController?
+    
     let authUrl:String = "http://api.weecode.com/alarm/v1/users"
     let defaults = NSUserDefaults.standardUserDefaults()
     
@@ -115,7 +117,11 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
                         if (self.userNameField.text == jsonDict.valueForKey("_id") as? String) {
                             self.defaults.setValue(accessToken, forKey: Constants.kDefaultsAccessTokenKey)
                             
-                            self.dismissViewControllerAnimated(true, completion: nil)
+                            if self.presentingView != nil {
+                                self.presentingView!.dismissAuthSettings()
+                            } else {
+                              self.dismissViewControllerAnimated(true, completion: nil)
+                            }
                         } else {
                             let alert = UIAlertController(title: "Error Authenticating", message: "Auth Token is Invalid", preferredStyle: UIAlertControllerStyle.Alert)
                             alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
