@@ -16,6 +16,8 @@
 		9600C8051A4B182F00263E81 /* alarm_remote_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600C8041A4B182F00263E81 /* alarm_remote_iosTests.swift */; };
 		9600C80F1A4B246D00263E81 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600C80E1A4B246D00263E81 /* Constants.swift */; };
 		9600C8111A4B26A700263E81 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600C8101A4B26A700263E81 /* AuthViewController.swift */; };
+		966DF85E1A4CE87800F8DF1A /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C18ED61A4CC68400A17BB8 /* PKHUD.framework */; };
+		966DF85F1A4CE87800F8DF1A /* PKHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96C18ED61A4CC68400A17BB8 /* PKHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +27,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 9600C7E51A4B182F00263E81;
 			remoteInfo = "alarm-remote-ios";
+		};
+		966DF8601A4CE87800F8DF1A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96C18ECE1A4CC68400A17BB8 /* PKHUD.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F996321D19514FD8001F73CA;
+			remoteInfo = PKHUD;
 		};
 		96C18ED31A4CC68400A17BB8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -49,6 +58,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		966DF8621A4CE87900F8DF1A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				966DF85F1A4CE87800F8DF1A /* PKHUD.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		9600C7E61A4B182F00263E81 /* alarm-remote-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "alarm-remote-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9600C7EA1A4B182F00263E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				966DF85E1A4CE87800F8DF1A /* PKHUD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,11 +187,13 @@
 				9600C7E21A4B182F00263E81 /* Sources */,
 				9600C7E31A4B182F00263E81 /* Frameworks */,
 				9600C7E41A4B182F00263E81 /* Resources */,
+				966DF8621A4CE87900F8DF1A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				96C18ED81A4CC68E00A17BB8 /* PBXTargetDependency */,
+				966DF8611A4CE87800F8DF1A /* PBXTargetDependency */,
 			);
 			name = "alarm-remote-ios";
 			productName = "alarm-remote-ios";
@@ -301,6 +327,11 @@
 			target = 9600C7E51A4B182F00263E81 /* alarm-remote-ios */;
 			targetProxy = 9600C7FF1A4B182F00263E81 /* PBXContainerItemProxy */;
 		};
+		966DF8611A4CE87800F8DF1A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PKHUD;
+			targetProxy = 966DF8601A4CE87800F8DF1A /* PBXContainerItemProxy */;
+		};
 		96C18ED81A4CC68E00A17BB8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = PKHUD;
@@ -411,6 +442,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "alarm-remote-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -421,6 +453,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "alarm-remote-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
