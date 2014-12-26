@@ -58,7 +58,8 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+        let queue = NSOperationQueue()
+        NSURLConnection.sendAsynchronousRequest(request, queue: queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
 
             dispatch_async(dispatch_get_main_queue(), {
                 HUDController.sharedController.hide()
