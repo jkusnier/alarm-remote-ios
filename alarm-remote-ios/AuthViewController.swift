@@ -20,17 +20,17 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var centerDoneConstraint: NSLayoutConstraint!
     
     let authUrl:String = "http://api.weecode.com/alarm/v1/users"
+    let defaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if let userName:NSString? = defaults.valueForKey(Constants.kDefaultsUsernameKey) as? NSString {
+        if let userName:String? = self.defaults.stringForKey(Constants.kDefaultsUsernameKey) {
             if userNameField != nil {
                 userNameField.text = userName
             }
         }
-        if let accessToken:NSString? = defaults.valueForKey(Constants.kDefaultsAccessTokenKey) as? NSString {
+        if let accessToken:String? = self.defaults.stringForKey(Constants.kDefaultsAccessTokenKey) {
             if accessToken != nil {
                 accessTokenField.text = accessToken
                 self.doneButton.enabled = true
@@ -75,8 +75,7 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
                         var error: NSError?
                         let jsonDict = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: &error) as NSDictionary
                         if let accessToken = jsonDict.valueForKey("accessToken") as? String {
-                            let defaults = NSUserDefaults.standardUserDefaults()
-                            defaults.setValue(self.userNameField.text, forKey: Constants.kDefaultsUsernameKey)
+                            self.defaults.setValue(self.userNameField.text, forKey: Constants.kDefaultsUsernameKey)
                             
                             self.accessTokenField.text = accessToken
                             self.doneButton.enabled = true
@@ -114,8 +113,7 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
                         let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData!, options: nil, error: &error) as NSDictionary
                         
                         if (self.userNameField.text == jsonDict.valueForKey("_id") as? String) {
-                            let defaults = NSUserDefaults.standardUserDefaults()
-                            defaults.setValue(accessToken, forKey: Constants.kDefaultsAccessTokenKey)
+                            self.defaults.setValue(accessToken, forKey: Constants.kDefaultsAccessTokenKey)
                             
                             self.dismissViewControllerAnimated(true, completion: nil)
                         } else {
