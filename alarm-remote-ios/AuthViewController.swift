@@ -25,6 +25,9 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
         if let userName:NSString? = defaults.valueForKey(Constants.kDefaultsUsernameKey) as? NSString {
             userNameField.text = userName
         }
+        if let accessToken:NSString? = defaults.valueForKey(Constants.kDefaultsAccessTokenKey) as? NSString {
+            accessTokenField.text = accessToken
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,7 +97,7 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
                         
                         if (self.userNameField.text == jsonDict.valueForKey("_id") as? String) {
                             let defaults = NSUserDefaults.standardUserDefaults()
-                            defaults.setValue(accessToken, forKey: Constants.kDefaultsAuthKey)
+                            defaults.setValue(accessToken, forKey: Constants.kDefaultsAccessTokenKey)
                             
                             self.dismissViewControllerAnimated(true, completion: nil)
                         } else {

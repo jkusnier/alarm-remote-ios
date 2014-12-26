@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         
         let defaults = NSUserDefaults.standardUserDefaults()
         
-        if (defaults.stringForKey(Constants.kDefaultsAuthKey) == nil) {
+        if (defaults.stringForKey(Constants.kDefaultsAccessTokenKey) == nil) {
             performSegueWithIdentifier("showAuth", sender: self)
         }
     }
