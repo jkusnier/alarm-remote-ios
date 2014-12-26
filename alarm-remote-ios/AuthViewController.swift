@@ -72,13 +72,13 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func donePressed(sender: AnyObject) {
-        let authToken = accessTokenField.text
+        let accessToken = self.accessTokenField.text
         
-        if (!authToken.isEmpty) {
+        if (!accessToken.isEmpty) {
             HUDController.sharedController.contentView = HUDContentView.ProgressView()
             HUDController.sharedController.show()
             
-            let m_authUrl = authUrl.stringByAppendingFormat("?access_token=%@", self.accessTokenField.text)
+            let m_authUrl = authUrl.stringByAppendingFormat("?access_token=%@", accessToken)
             let jsonData = NSData(contentsOfURL: NSURL(string: m_authUrl)!)
             
             HUDController.sharedController.hide()
@@ -88,7 +88,7 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
                 
                 if (self.userNameField.text == jsonDict.valueForKey("_id") as? String) {
                     let defaults = NSUserDefaults.standardUserDefaults()
-                    defaults.setValue(accessTokenField.text, forKey: Constants.kDefaultsAuthKey)
+                    defaults.setValue(accessToken, forKey: Constants.kDefaultsAuthKey)
 
                     self.dismissViewControllerAnimated(true, completion: nil)
                 } else {
