@@ -36,39 +36,42 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
         HUDController.sharedController.show()
         
         var request = NSMutableURLRequest(URL: NSURL(string: authUrl)!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: 5)
-        var response: NSURLResponse?
-        var error: NSError?
         
         let jsonString = "{\"user_id\":\"\(userNameField.text)\", \"password\":\"\(passwordField.text)\"}"
         request.HTTPBody = jsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        var result:NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse: &response, error: &error)
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
 
-        HUDController.sharedController.hide()
-        if let httpResponse = response as? NSHTTPURLResponse {
-            if (httpResponse.statusCode == 200) {
-                let jsonDict = NSJSONSerialization.JSONObjectWithData(result!, options: nil, error: &error) as NSDictionary
-                if let accessToken = jsonDict.valueForKey("accessToken") as? String {
-                    let defaults = NSUserDefaults.standardUserDefaults()
-                    defaults.setValue(userNameField.text, forKey: Constants.kDefaultsUsernameKey)
-                    
-                    self.accessTokenField.text = accessToken
-                    self.doneButton.enabled = true
+            dispatch_async(dispatch_get_main_queue(), {
+                HUDController.sharedController.hide()
+                
+                func showErrorAlert() {
+                    let alert = UIAlertController(title: "Error Authenticating", message: "Check Credentials", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
                 }
-            } else {
-                println("HTTP response: \(httpResponse.statusCode)")
-                let alert = UIAlertController(title: "Error Authenticating", message: "Check Credentials", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
-            }
-        } else {
-            println("No HTTP response")
-            let alert = UIAlertController(title: "Error Authenticating", message: "Check Credentials", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
+
+                if let httpResponse = response as? NSHTTPURLResponse {
+                    if (httpResponse.statusCode == 200) {
+                        var error: NSError?
+                        let jsonDict = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: &error) as NSDictionary
+                        if let accessToken = jsonDict.valueForKey("accessToken") as? String {
+                            let defaults = NSUserDefaults.standardUserDefaults()
+                            defaults.setValue(self.userNameField.text, forKey: Constants.kDefaultsUsernameKey)
+                            
+                            self.accessTokenField.text = accessToken
+                            self.doneButton.enabled = true
+                        }
+                    } else {
+                        showErrorAlert()
+                    }
+                } else {
+                    showErrorAlert()
+                }
+            })
+        })
     }
     
     @IBAction func donePressed(sender: AnyObject) {
