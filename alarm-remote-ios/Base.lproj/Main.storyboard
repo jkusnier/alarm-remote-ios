@@ -116,6 +116,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q9D-TK-X4f">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items/>
+                            </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TXB-fc-gKn">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
@@ -130,12 +134,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="q9D-TK-X4f" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="DyX-A3-5yQ"/>
+                            <constraint firstItem="q9D-TK-X4f" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="FWf-oh-9z4"/>
                             <constraint firstAttribute="trailing" secondItem="TXB-fc-gKn" secondAttribute="trailing" id="JYO-KE-Qmr"/>
                             <constraint firstItem="TXB-fc-gKn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Wwe-JQ-j34"/>
                             <constraint firstAttribute="bottom" secondItem="TXB-fc-gKn" secondAttribute="bottom" id="cVC-PQ-r8z"/>
+                            <constraint firstAttribute="trailing" secondItem="q9D-TK-X4f" secondAttribute="trailing" id="per-HY-wLo"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomToolbar" destination="TXB-fc-gKn" id="3jw-tg-Obs"/>
+                        <outlet property="topToolbar" destination="q9D-TK-X4f" id="OAw-U8-Ivc"/>
+                        <outlet property="topToolbarConstraint" destination="FWf-oh-9z4" id="hTS-xg-FGY"/>
                         <segue destination="bxt-49-fM0" kind="presentation" identifier="showAuth" id="fdu-kL-8Qp"/>
                     </connections>
                 </viewController>

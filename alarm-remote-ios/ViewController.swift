@@ -10,8 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var topToolbar: UIToolbar!
+    @IBOutlet weak var topToolbarConstraint: NSLayoutConstraint!
+
+    @IBOutlet weak var bottomToolbar: UIToolbar!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        topToolbarConstraint.constant = UIApplication.sharedApplication().statusBarFrame.height
+        
+        topToolbar.items = [UIBarButtonItem(title: "Switch", style: .Bordered, target: nil, action: nil), UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil), UIBarButtonItem(title: "Edit", style: .Bordered, target: nil, action: nil)]
     }
     
     override func viewDidAppear(animated: Bool) {
