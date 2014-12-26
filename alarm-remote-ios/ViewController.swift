@@ -20,12 +20,16 @@ class ViewController: UIViewController {
     
     var devices = [String: [String: AnyObject?]]()
     
+    let selectedDeviceLabel = UILabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.topToolbarConstraint.constant = UIApplication.sharedApplication().statusBarFrame.height
         
-        self.topToolbar.items = [UIBarButtonItem(title: "Switch", style: .Bordered, target: nil, action: nil), UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil), UIBarButtonItem(title: "Edit", style: .Bordered, target: nil, action: nil)]
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        
+        self.topToolbar.items = [UIBarButtonItem(title: "Switch", style: .Bordered, target: nil, action: nil), flexibleSpace, UIBarButtonItem(customView: self.selectedDeviceLabel), flexibleSpace, UIBarButtonItem(title: "Edit", style: .Bordered, target: nil, action: nil)]
         
         if defaults.stringForKey(Constants.kDefaultsAccessTokenKey) != nil {
             self.updateDevices()
