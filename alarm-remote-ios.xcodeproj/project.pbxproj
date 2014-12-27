@@ -16,6 +16,7 @@
 		9600C8051A4B182F00263E81 /* alarm_remote_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600C8041A4B182F00263E81 /* alarm_remote_iosTests.swift */; };
 		9600C80F1A4B246D00263E81 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600C80E1A4B246D00263E81 /* Constants.swift */; };
 		9600C8111A4B26A700263E81 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600C8101A4B26A700263E81 /* AuthViewController.swift */; };
+		962EE8651A4EDB3100B98B90 /* SelectDeviceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962EE8641A4EDB3100B98B90 /* SelectDeviceTableViewController.swift */; };
 		966DF85E1A4CE87800F8DF1A /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C18ED61A4CC68400A17BB8 /* PKHUD.framework */; };
 		966DF85F1A4CE87800F8DF1A /* PKHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96C18ED61A4CC68400A17BB8 /* PKHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -86,6 +87,7 @@
 		9600C8041A4B182F00263E81 /* alarm_remote_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alarm_remote_iosTests.swift; sourceTree = "<group>"; };
 		9600C80E1A4B246D00263E81 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9600C8101A4B26A700263E81 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		962EE8641A4EDB3100B98B90 /* SelectDeviceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDeviceTableViewController.swift; sourceTree = "<group>"; };
 		96C18ECE1A4CC68400A17BB8 /* PKHUD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PKHUD.xcodeproj; path = PKHUD/PKHUD.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,6 +139,7 @@
 				9600C7F51A4B182F00263E81 /* Images.xcassets */,
 				9600C7F71A4B182F00263E81 /* LaunchScreen.xib */,
 				9600C7F21A4B182F00263E81 /* Main.storyboard */,
+				962EE8641A4EDB3100B98B90 /* SelectDeviceTableViewController.swift */,
 				9600C7E91A4B182F00263E81 /* Supporting Files */,
 				9600C7F01A4B182F00263E81 /* ViewController.swift */,
 			);
@@ -306,6 +309,7 @@
 				9600C7F11A4B182F00263E81 /* ViewController.swift in Sources */,
 				9600C7EC1A4B182F00263E81 /* AppDelegate.swift in Sources */,
 				9600C8111A4B26A700263E81 /* AuthViewController.swift in Sources */,
+				962EE8651A4EDB3100B98B90 /* SelectDeviceTableViewController.swift in Sources */,
 				9600C7EF1A4B182F00263E81 /* alarm_remote_ios.xcdatamodeld in Sources */,
 				9600C80F1A4B246D00263E81 /* Constants.swift in Sources */,
 			);

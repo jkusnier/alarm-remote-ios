@@ -28,8 +28,10 @@ class ViewController: UIViewController {
         self.topToolbarConstraint.constant = UIApplication.sharedApplication().statusBarFrame.height
         
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        let switchButton = UIBarButtonItem(title: "Switch", style: .Bordered, target: self, action: "showSelectDevice")
+        let editButton = UIBarButtonItem(title: "Edit", style: .Bordered, target: nil, action: nil)
         
-        self.topToolbar.items = [UIBarButtonItem(title: "Switch", style: .Bordered, target: nil, action: nil), flexibleSpace, UIBarButtonItem(customView: self.selectedDeviceLabel), flexibleSpace, UIBarButtonItem(title: "Edit", style: .Bordered, target: nil, action: nil)]
+        self.topToolbar.items = [switchButton, flexibleSpace, UIBarButtonItem(customView: self.selectedDeviceLabel), flexibleSpace, editButton]
         
         if defaults.stringForKey(Constants.kDefaultsAccessTokenKey) != nil {
             self.updateDevices()
@@ -52,6 +54,11 @@ class ViewController: UIViewController {
         if contains(["showAuth", "showAuthSettings"], segue.identifier!) {
             if let destView = segue.destinationViewController as? AuthViewController {
                 destView.presentingView = self
+            }
+        } else if (segue.identifier == "showSelectDevice") {
+            if let destView = segue.destinationViewController as? SelectDeviceTableViewController {
+                destView.presentingView = self
+                destView.devices = self.devices
             }
         }
     }
@@ -101,6 +108,8 @@ class ViewController: UIViewController {
                                     self.devices[m_id!] = ["_id": m_id, "name": m_name, "zip": m_zip, "timeZone": m_timeZone, "owner": m_owner]
                                 }
                             }
+                            
+                            self.modelChanged()
                         }
                     } else {
                         showErrorAlert()
@@ -110,6 +119,29 @@ class ViewController: UIViewController {
                 }
             })
         })
+    }
+    
+    func modelChanged() {
+        if self.defaults.stringForKey(Constants.kDefaultsSelectedDeviceId) == nil {
+            let defaultDevice = self.devices.keys.first
+            self.defaults.setObject(defaultDevice, forKey: Constants.kDefaultsSelectedDeviceId)
+        }
+        
+        setSelectedDeviceTitle()
+    }
+    
+    func setSelectedDeviceTitle() {
+        let defaultDevice = self.defaults.stringForKey(Constants.kDefaultsSelectedDeviceId)!
+        if let m_device = self.devices[defaultDevice] {
+            if let m_name = m_device["name"] as? String {
+                self.selectedDeviceLabel.text = m_name
+                self.selectedDeviceLabel.sizeToFit()
+            }
+        }
+    }
+    
+    func showSelectDevice() {
+        self.performSegueWithIdentifier("showSelectDevice", sender: self)
     }
 }
 

@@ -147,11 +147,38 @@
                         <outlet property="topToolbar" destination="q9D-TK-X4f" id="OAw-U8-Ivc"/>
                         <outlet property="topToolbarConstraint" destination="FWf-oh-9z4" id="hTS-xg-FGY"/>
                         <segue destination="bxt-49-fM0" kind="presentation" identifier="showAuth" id="fdu-kL-8Qp"/>
+                        <segue destination="cxN-s7-5kt" kind="presentation" identifier="showSelectDevice" id="MV6-OH-AgB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="437" y="420"/>
+        </scene>
+        <!--Select Device Table View Controller-->
+        <scene sceneID="FeT-zQ-p8b">
+            <objects>
+                <tableViewController id="cxN-s7-5kt" customClass="SelectDeviceTableViewController" customModule="alarm_remote_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="rfw-zA-ATq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="cell" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="hPb-c7-XbG">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hPb-c7-XbG" id="PiF-kL-yp4">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cxN-s7-5kt" id="w9t-BF-a6u"/>
+                            <outlet property="delegate" destination="cxN-s7-5kt" id="emG-oI-EcB"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oQb-Wc-4Rz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1137" y="420"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

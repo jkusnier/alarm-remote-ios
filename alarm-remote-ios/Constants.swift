@@ -9,4 +9,6 @@
 struct Constants {
     static let kDefaultsAccessTokenKey = "kDefaultsAccessTokenKey"
     static let kDefaultsUsernameKey = "kDefaultsUsernameKey"
+    
+    static let kDefaultsSelectedDeviceId = "kDefaultsSelectedDeviceId"
 }
