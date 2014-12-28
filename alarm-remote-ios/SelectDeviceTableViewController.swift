@@ -15,10 +15,16 @@ class SelectDeviceTableViewController: UITableViewController {
     var deviceKeys:[String]?
     var devices:[String: [String: AnyObject?]]? {
         didSet {
-            if let keys = self.devices?.keys {
-                self.deviceKeys = keys.array
+            if let keys = self.devices?.keys.array {
+                self.deviceKeys = sorted(keys, { (s1: String, s2: String) -> Bool in
+                    if let name1 = self.devices?[s1]?["name"] as? String {
+                        if let name2 = self.devices?[s2]?["name"] as? String {
+                            return name1 < name2
+                        }
+                    }
+                    return s1 < s2 // fall back to just the key name
+                })
             }
-            // TODO sort the keys based on the name value
         }
     }
     
