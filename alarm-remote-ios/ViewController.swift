@@ -64,9 +64,8 @@ class ViewController: UIViewController {
     }
     
     func dismissAuthSettings() {
-        self.dismissViewControllerAnimated(true, completion: {
-            self.updateDevices()
-        })
+        self.modelChanged()
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func updateDevices() {
