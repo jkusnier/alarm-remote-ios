@@ -32,6 +32,9 @@ class SelectDeviceTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.height
+        self.tableView.contentInset = UIEdgeInsetsMake(statusBarHeight, 0, 0, 0);
     }
 
     override func didReceiveMemoryWarning() {
