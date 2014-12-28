@@ -58,6 +58,10 @@ class SelectDeviceTableViewController: UITableViewController {
             if let name = self.devices?[key]?["name"]? as? String {
                 cell.textLabel?.text = name
             }
+            
+            if self.defaults.stringForKey(Constants.kDefaultsSelectedDeviceId) == key {
+                cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            }
         }
 
         return cell
