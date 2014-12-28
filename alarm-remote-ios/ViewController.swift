@@ -9,7 +9,7 @@
 import UIKit
 import PKHUD
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var topToolbar: UIToolbar!
     @IBOutlet weak var topToolbarConstraint: NSLayoutConstraint!
@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     let defaults = NSUserDefaults.standardUserDefaults()
     
     var devices = [String: [String: AnyObject?]]()
+    var alarms = [String: [String: AnyObject?]]()
     
     let selectedDeviceLabel = UILabel()
     
@@ -141,6 +142,18 @@ class ViewController: UIViewController {
     
     func showSelectDevice() {
         self.performSegueWithIdentifier("showSelectDevice", sender: self)
+    }
+    
+    // MARK: - Table view data source
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.alarms.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
+        
+        return cell
     }
 }
 

@@ -163,8 +163,8 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M - F" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnV-GW-w5M">
-                                                    <rect key="frame" x="294" y="6" width="200" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M - F" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnV-GW-w5M">
+                                                    <rect key="frame" x="295" y="11.5" width="200" height="20.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="200" id="srG-K0-dSP"/>
                                                     </constraints>
@@ -176,16 +176,28 @@
                                             <constraints>
                                                 <constraint firstItem="P1z-TL-isI" firstAttribute="top" secondItem="ucz-s3-m0V" secondAttribute="topMargin" constant="-2" id="5Ob-g8-Z6x"/>
                                                 <constraint firstItem="mnV-GW-w5M" firstAttribute="leading" secondItem="n9X-Et-bDl" secondAttribute="trailing" constant="8" id="6CV-MH-ovw"/>
+                                                <constraint firstItem="uIx-OY-qml" firstAttribute="leading" secondItem="mnV-GW-w5M" secondAttribute="trailing" constant="20" id="9Vp-Sv-jld"/>
                                                 <constraint firstItem="n9X-Et-bDl" firstAttribute="top" secondItem="ucz-s3-m0V" secondAttribute="topMargin" constant="14" id="H3c-0R-qVM"/>
                                                 <constraint firstItem="P1z-TL-isI" firstAttribute="leading" secondItem="ucz-s3-m0V" secondAttribute="leadingMargin" constant="28" id="S5B-ZS-eSc"/>
+                                                <constraint firstItem="uIx-OY-qml" firstAttribute="centerY" secondItem="mnV-GW-w5M" secondAttribute="centerY" id="XcA-uL-iO4"/>
                                                 <constraint firstItem="P1z-TL-isI" firstAttribute="leading" secondItem="n9X-Et-bDl" secondAttribute="leading" id="clg-5Z-4kW"/>
                                                 <constraint firstAttribute="centerY" secondItem="uIx-OY-qml" secondAttribute="centerY" id="f9f-kb-AJw"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="uIx-OY-qml" secondAttribute="trailing" constant="28" id="gXu-db-GPQ"/>
                                                 <constraint firstItem="P1z-TL-isI" firstAttribute="top" secondItem="mnV-GW-w5M" secondAttribute="top" id="wQZ-YM-GCL"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="wQZ-YM-GCL"/>
+                                                    <exclude reference="6CV-MH-ovw"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="4SZ-9O-H1M"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="UsC-HS-QBa"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
