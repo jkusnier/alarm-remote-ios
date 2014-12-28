@@ -216,6 +216,7 @@
                     </view>
                     <connections>
                         <outlet property="bottomToolbar" destination="TXB-fc-gKn" id="3jw-tg-Obs"/>
+                        <outlet property="tableView" destination="Eiq-Sk-5fe" id="GN4-bF-RH5"/>
                         <outlet property="topToolbar" destination="q9D-TK-X4f" id="OAw-U8-Ivc"/>
                         <outlet property="topToolbarConstraint" destination="FWf-oh-9z4" id="hTS-xg-FGY"/>
                         <segue destination="bxt-49-fM0" kind="presentation" identifier="showAuth" id="fdu-kL-8Qp"/>

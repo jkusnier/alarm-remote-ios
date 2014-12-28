@@ -15,6 +15,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var topToolbarConstraint: NSLayoutConstraint!
 
     @IBOutlet weak var bottomToolbar: UIToolbar!
+
+    @IBOutlet weak var tableView: UITableView!
     
     let defaults = NSUserDefaults.standardUserDefaults()
     
@@ -128,6 +130,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         setSelectedDeviceTitle()
+        getDeviceAlarms()
     }
     
     func setSelectedDeviceTitle() {
@@ -138,6 +141,61 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.selectedDeviceLabel.sizeToFit()
             }
         }
+    }
+    
+    func getDeviceAlarms() {
+        HUDController.sharedController.contentView = HUDContentView.ProgressView()
+        HUDController.sharedController.show()
+        
+        let deviceId = self.defaults.stringForKey(Constants.kDefaultsSelectedDeviceId)!
+        let accessToken:NSString = defaults.stringForKey(Constants.kDefaultsAccessTokenKey)!
+        let alarmsUrl = "http://api.weecode.com/alarm/v1/devices/\(deviceId)/alarms?access_token=\(accessToken)"
+        
+        var request = NSMutableURLRequest(URL: NSURL(string: alarmsUrl)!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: 5)
+        let queue = NSOperationQueue()
+        
+        NSURLConnection.sendAsynchronousRequest(request, queue: queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+            dispatch_async(dispatch_get_main_queue(), {
+                HUDController.sharedController.hide()
+                
+                func showErrorAlert() {
+                    let alert = UIAlertController(title: "Error", message: "Error Retrieving Data", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+                
+                if let httpResponse = response as? NSHTTPURLResponse {
+                    if (httpResponse.statusCode == 200) {
+                        var error: NSError?
+                        let jsonArr:NSArray? = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: &error) as? NSArray
+                        
+                        if error != nil || jsonArr == nil {
+                            showErrorAlert()
+                        } else {
+                            self.alarms = [String: [String: AnyObject?]]()
+                            
+                            for item in jsonArr! {
+                                if let dict = item as? NSDictionary {
+                                    let m_id = dict.valueForKey("_id") as? String
+                                    let m_dayOfWeek = dict.valueForKey("dayOfWeek") as? [Int]
+                                    let m_name = dict.valueForKey("name") as? String
+                                    let m_status = dict.valueForKey("status") as? Int
+                                    let m_time = dict.valueForKey("time") as? Int
+                                    
+                                    self.alarms[m_id!] = ["_id": m_id, "dayOfWeek": m_dayOfWeek, "name": m_name, "status": m_status, "time": m_time]
+                                }
+                            }
+                            
+                            self.tableView.reloadData()
+                        }
+                    } else {
+                        showErrorAlert()
+                    }
+                } else {
+                    showErrorAlert()
+                }
+            })
+        })
     }
     
     func showSelectDevice() {
