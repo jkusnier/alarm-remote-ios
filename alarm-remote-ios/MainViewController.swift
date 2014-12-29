@@ -144,61 +144,18 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if let m_cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as? AlarmTableViewCell {
             if let m_alarm = self.alarms?[m_alarmId] {
-                m_cell.nameLabel.text = m_alarm["name"] as? String
-                if let m_time = m_alarm["time"] as? Int {
-                    let hour = m_time / 60
-                    let minute = m_time % 60
-                    let am_pm = m_time >= 12 ? "PM" : "AM"
-                    
-                    let minute_prefix = (minute < 10) ? "0" : ""
-                    let m_hour = (hour > 12) ? hour - 12 : (hour == 0) ? 12 : hour
-                    
-                    m_cell.timeLabel.text = "\(m_hour):\(minute_prefix)\(minute) \(am_pm)"
-                } else {
-                    m_cell.timeLabel.text = ""
-                }
-                if let m_status = m_alarm["status"] as? Bool {
+                let f_alarm = api.formatAlarmForMainCell(m_alarm)
+                
+                m_cell.nameLabel.text = f_alarm["name"] as? String
+                m_cell.timeLabel.text = f_alarm["time"] as? String
+                if let m_status = f_alarm["status"] as? Bool {
                     m_cell.statusSwitch.on = m_status
                 } else {
                     m_cell.statusSwitch.on = false
                 }
-                if let m_dayOfWeek = m_alarm["dayOfWeek"] as? [Int] {
-                    let m2_dayOfWeek = sorted(m_dayOfWeek) // Order is likely, but not guaranteed
-                    let days = ["","Su","Mo","Tu","We","Th","Fr","Sa"] // 1 = Sunday, 7 = Saturday
-                    
-                    let dash = "-"
-                    var m_reduced = ""
-                    func appendDay(str: String, day: String) -> String {
-                        if day == dash {
-                            if str.hasSuffix(dash) { return str } // We already have a dash
-                            else { return str + dash } // Append the dash and return
-                        } else {
-                            return str + (!str.hasSuffix(dash) ? "," : "")  + day // Append a comma if needed and the day
-                        }
-                    }
-                    // TODO, determine if a range crosses Sat / Sun and realign the array
-                    for (index, value) in enumerate(m_dayOfWeek) {
-                        if index == 0 {
-                            m_reduced += days[value] // Just add the first value to the string
-                        } else {
-                            let prev_val = m_dayOfWeek[index - 1] // Used to determine if we have a range
-                            if index + 1 < m_dayOfWeek.count { // We're not at the end
-                                let next_val = m_dayOfWeek[index + 1] // Used to determine if we have a range
-                                if value == prev_val + 1 && value == next_val - 1 { // We have a range
-                                    m_reduced = appendDay(m_reduced, dash)
-                                } else { // No range, append the day
-                                    m_reduced = appendDay(m_reduced, days[value])
-                                }
-                            } else { // At the end
-                                m_reduced = appendDay(m_reduced, days[value])
-                            }
-                        }
-                    }
-
-                    m_cell.dayOfWeekLabel.text = m_reduced
-                }
+                m_cell.dayOfWeekLabel.text = f_alarm["dayOfWeek"] as? String
             }
-            
+
             cell = m_cell
         }
         
