@@ -152,4 +152,34 @@ class APIController {
             })
         })
     }
+    
+    func testAccessToken(userName: String, accessToken: String, failure fail : (NSError? -> ())? = { error in println(error) }, success succeed: (() -> ())? = nil) {
+        
+        if (!accessToken.isEmpty) {
+            HUDController.sharedController.contentView = HUDContentView.ProgressView()
+            HUDController.sharedController.show()
+            
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
+                let m_authUrl = self.authUrl.stringByAppendingFormat("?access_token=%@", accessToken)
+                let jsonData = NSData(contentsOfURL: NSURL(string: m_authUrl)!)
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    HUDController.sharedController.hide()
+                    
+                    if (jsonData != nil) {
+                        var error: NSError?
+                        let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData!, options: nil, error: &error) as NSDictionary
+                        
+                        if (userName == jsonDict.valueForKey("_id") as? String) {
+                            self.defaults.setValue(accessToken, forKey: Constants.kDefaultsAccessTokenKey)
+                            
+                            succeed!()
+                        } else {
+                            fail!(error)
+                        }
+                    }
+                })
+            });
+        }
+    }
 }

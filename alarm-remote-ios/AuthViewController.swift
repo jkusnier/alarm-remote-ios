@@ -23,7 +23,6 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
 
     let api = APIController()
     
-    let authUrl:String = "http://api.weecode.com/alarm/v1/users"
     let defaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
@@ -70,40 +69,21 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func donePressed(sender: AnyObject) {
-        let accessToken = self.accessTokenField.text
-        
-        if (!accessToken.isEmpty) {
-            HUDController.sharedController.contentView = HUDContentView.ProgressView()
-            HUDController.sharedController.show()
-            
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
-                let m_authUrl = self.authUrl.stringByAppendingFormat("?access_token=%@", accessToken)
-                let jsonData = NSData(contentsOfURL: NSURL(string: m_authUrl)!)
-                
-                dispatch_async(dispatch_get_main_queue(), {
-                    HUDController.sharedController.hide()
+        api.testAccessToken(self.userNameField.text, accessToken: self.accessTokenField.text,
+            failure: { error in
+                let alert = UIAlertController(title: "Error Authenticating", message: "Auth Token is Invalid", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
 
-                    if (jsonData != nil) {
-                        var error: NSError?
-                        let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData!, options: nil, error: &error) as NSDictionary
-                        
-                        if (self.userNameField.text == jsonDict.valueForKey("_id") as? String) {
-                            self.defaults.setValue(accessToken, forKey: Constants.kDefaultsAccessTokenKey)
-                            
-                            if self.presentingView != nil {
-                                self.presentingView!.dismissAuthSettings()
-                            } else {
-                              self.dismissViewControllerAnimated(true, completion: nil)
-                            }
-                        } else {
-                            let alert = UIAlertController(title: "Error Authenticating", message: "Auth Token is Invalid", preferredStyle: UIAlertControllerStyle.Alert)
-                            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
-                            self.presentViewController(alert, animated: true, completion: nil)
-                        }
-                    }
-                })
-            });
-        }
+            },
+            success: {
+                if self.presentingView != nil {
+                    self.presentingView!.dismissAuthSettings()
+                } else {
+                  self.dismissViewControllerAnimated(true, completion: nil)
+                }
+
+        })
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
