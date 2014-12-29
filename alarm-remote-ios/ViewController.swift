@@ -24,8 +24,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var alarmKeys: [String] = [String]()
     var alarms: [String: [String: AnyObject?]]? {
         didSet {
-            if let keys = self.alarms?.keys {
-                self.alarmKeys = keys.array
+            if let keys = self.alarms?.keys.array {
+                self.alarmKeys = sorted(keys, { (s1: String, s2: String) -> Bool in
+                    if let time1 = self.alarms?[s1]?["time"] as? Int {
+                        if let time2 = self.alarms?[s2]?["time"] as? Int {
+                            return time1 < time2
+                        }
+                    }
+                    return s1 < s2 // fall back to just the key name
+                })
             } else {
                 self.alarmKeys = [String]()
             }
