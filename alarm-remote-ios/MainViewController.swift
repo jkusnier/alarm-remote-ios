@@ -55,7 +55,16 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.topToolbar.items = [switchButton, flexibleSpace, UIBarButtonItem(customView: self.selectedDeviceLabel), flexibleSpace, editButton]
         
         if defaults.stringForKey(Constants.kDefaultsAccessTokenKey) != nil {
-            self.updateDevices()
+            api.updateDevices(
+                failure: { error in
+                    let alert = UIAlertController(title: "Error", message: "Error Retrieving Data", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                },
+                success: { devices in
+                    self.devices = devices
+                    self.modelChanged()
+            })
         }
     }
     
@@ -88,59 +97,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.modelChanged()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    func updateDevices() {
-        HUDController.sharedController.contentView = HUDContentView.ProgressView()
-        HUDController.sharedController.show()
-        
-        let accessToken:NSString = defaults.stringForKey(Constants.kDefaultsAccessTokenKey)!
-        let devicesUrl = "http://api.weecode.com/alarm/v1/devices?access_token=\(accessToken)"
-        
-        var request = NSMutableURLRequest(URL: NSURL(string: devicesUrl)!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: 5)
-        let queue = NSOperationQueue()
-        
-        NSURLConnection.sendAsynchronousRequest(request, queue: queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-            dispatch_async(dispatch_get_main_queue(), {
-                HUDController.sharedController.hide()
-                
-                func showErrorAlert() {
-                    let alert = UIAlertController(title: "Error", message: "Error Retrieving Data", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
-                    self.presentViewController(alert, animated: true, completion: nil)
-                }
-                
-                if let httpResponse = response as? NSHTTPURLResponse {
-                    if (httpResponse.statusCode == 200) {
-                        var error: NSError?
-                        let jsonArr:NSArray? = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: &error) as? NSArray
-                        
-                        if error != nil || jsonArr == nil {
-                            showErrorAlert()
-                        } else {
-                            for item in jsonArr! {
-                                if let dict = item as? NSDictionary {
-                                    let m_id = dict.valueForKey("_id") as? String
-                                    let m_name = dict.valueForKey("name") as? String
-                                    let m_zip = dict.valueForKey("zip") as? Int
-                                    let m_timeZone = dict.valueForKey("timeZone") as? Int
-                                    let m_owner = dict.valueForKey("owner") as? String
-                                    
-                                    self.devices[m_id!] = ["_id": m_id, "name": m_name, "zip": m_zip, "timeZone": m_timeZone, "owner": m_owner]
-                                }
-                            }
-                            
-                            self.modelChanged()
-                        }
-                    } else {
-                        showErrorAlert()
-                    }
-                } else {
-                    showErrorAlert()
-                }
-            })
-        })
-    }
-    
+
     func modelChanged() {
         if self.defaults.stringForKey(Constants.kDefaultsSelectedDeviceId) == nil {
             let defaultDevice = self.devices.keys.first
