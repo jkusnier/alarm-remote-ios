@@ -15,7 +15,7 @@ class APIController {
     
     let authUrl:String = "http://api.weecode.com/alarm/v1/users"
     
-    func updateDevices(failure fail : (NSError -> ())? = { error in println(error) }, success succeed: ([String: [String: AnyObject?]] -> ())? = nil) {
+    func updateDevices(failure fail : (NSError? -> ())? = { error in println(error) }, success succeed: ([String: [String: AnyObject?]] -> ())? = nil) {
         if succeed == nil { return }
         
         HUDController.sharedController.contentView = HUDContentView.ProgressView()
@@ -37,7 +37,7 @@ class APIController {
                         let jsonArr:NSArray? = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: &error) as? NSArray
                         
                         if error != nil || jsonArr == nil {
-                            fail!(error!)
+                            fail!(error)
                         } else {
                             var devices = [String: [String: AnyObject?]]()
                             
@@ -55,16 +55,16 @@ class APIController {
                             succeed!(devices)
                         }
                     } else {
-                        fail!(error!)
+                        fail!(error)
                     }
                 } else {
-                    fail!(error!)
+                    fail!(error)
                 }
             })
         })
     }
     
-    func getDeviceAlarms(failure fail : (NSError -> ())? = { error in println(error) }, success succeed: ([String: [String: AnyObject?]] -> ())? = nil) {
+    func getDeviceAlarms(failure fail : (NSError? -> ())? = { error in println(error) }, success succeed: ([String: [String: AnyObject?]] -> ())? = nil) {
         if succeed == nil { return }
         
         HUDController.sharedController.contentView = HUDContentView.ProgressView()
@@ -87,7 +87,7 @@ class APIController {
                         let jsonArr:NSArray? = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: &error) as? NSArray
                         
                         if error != nil || jsonArr == nil {
-                            fail!(error!)
+                            fail!(error)
                         } else {
                             var alarms = [String: [String: AnyObject?]]()
                             
@@ -106,16 +106,16 @@ class APIController {
                             succeed!(alarms)
                         }
                     } else {
-                        fail!(error!)
+                        fail!(error)
                     }
                 } else {
-                    fail!(error!)
+                    fail!(error)
                 }
             })
         })
     }
     
-    func getAccessToken(userName: String, password: String, failure fail : (NSError -> ())? = { error in println(error) }, success succeed: (String -> ())? = nil) {
+    func getAccessToken(userName: String, password: String, failure fail : (NSError? -> ())? = { error in println(error) }, success succeed: (String -> ())? = nil) {
         if succeed == nil { return }
         
         HUDController.sharedController.contentView = HUDContentView.ProgressView()
@@ -144,10 +144,10 @@ class APIController {
                             succeed!(accessToken)
                         }
                     } else {
-                        fail!(error!)
+                        fail!(error)
                     }
                 } else {
-                    fail!(error!)
+                    fail!(error)
                 }
             })
         })
