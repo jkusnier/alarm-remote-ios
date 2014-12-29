@@ -19,6 +19,7 @@
 		962EE8651A4EDB3100B98B90 /* SelectDeviceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962EE8641A4EDB3100B98B90 /* SelectDeviceTableViewController.swift */; };
 		966DF85E1A4CE87800F8DF1A /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C18ED61A4CC68400A17BB8 /* PKHUD.framework */; };
 		966DF85F1A4CE87800F8DF1A /* PKHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96C18ED61A4CC68400A17BB8 /* PKHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		96E00DB81A50E144007D8B55 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00DB71A50E144007D8B55 /* AlarmTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		9600C8101A4B26A700263E81 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		962EE8641A4EDB3100B98B90 /* SelectDeviceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDeviceTableViewController.swift; sourceTree = "<group>"; };
 		96C18ECE1A4CC68400A17BB8 /* PKHUD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PKHUD.xcodeproj; path = PKHUD/PKHUD.xcodeproj; sourceTree = "<group>"; };
+		96E00DB71A50E144007D8B55 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				9600C7ED1A4B182F00263E81 /* alarm_remote_ios.xcdatamodeld */,
+				96E00DB71A50E144007D8B55 /* AlarmTableViewCell.swift */,
 				9600C7EB1A4B182F00263E81 /* AppDelegate.swift */,
 				9600C8101A4B26A700263E81 /* AuthViewController.swift */,
 				9600C80E1A4B246D00263E81 /* Constants.swift */,
@@ -311,6 +314,7 @@
 				9600C8111A4B26A700263E81 /* AuthViewController.swift in Sources */,
 				962EE8651A4EDB3100B98B90 /* SelectDeviceTableViewController.swift in Sources */,
 				9600C7EF1A4B182F00263E81 /* alarm_remote_ios.xcdatamodeld in Sources */,
+				96E00DB81A50E144007D8B55 /* AlarmTableViewCell.swift in Sources */,
 				9600C80F1A4B246D00263E81 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

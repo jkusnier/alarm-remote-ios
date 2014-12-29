@@ -21,7 +21,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let defaults = NSUserDefaults.standardUserDefaults()
     
     var devices = [String: [String: AnyObject?]]()
-    var alarms = [String: [String: AnyObject?]]()
+    var alarmKeys: [String] = [String]()
+    var alarms: [String: [String: AnyObject?]]? {
+        didSet {
+            if let keys = self.alarms?.keys {
+                self.alarmKeys = keys.array
+            } else {
+                self.alarmKeys = [String]()
+            }
+        }
+    }
     
     let selectedDeviceLabel = UILabel()
     
@@ -205,13 +214,47 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK: - Table view data source
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.alarms.count
+        return self.alarmKeys.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
+        var cell: UITableViewCell?
         
-        return cell
+        let m_alarmId = self.alarmKeys[indexPath.row]
+        
+        if let m_cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as? AlarmTableViewCell {
+            if let m_alarm = self.alarms?[m_alarmId] {
+                m_cell.nameLabel.text = m_alarm["name"] as? String
+                if let m_time = m_alarm["time"] as? Int {
+                    let hour = m_time / 60
+                    let minute = m_time % 60
+                    let am_pm = m_time >= 12 ? "PM" : "AM"
+                    
+                    let minute_prefix = (minute < 10) ? "0" : ""
+                    let m_hour = (hour > 12) ? hour - 12 : (hour == 0) ? 12 : hour
+                    
+                    m_cell.timeLabel.text = "\(m_hour):\(minute_prefix)\(minute) \(am_pm)"
+                } else {
+                    m_cell.timeLabel.text = ""
+                }
+                if let m_status = m_alarm["status"] as? Bool {
+                    m_cell.statusSwitch.on = m_status
+                } else {
+                    m_cell.statusSwitch.on = false
+                }
+                if let m_dayOfWeek = m_alarm["dayOfWeek"] as? [Int] {
+                    let m2_dayOfWeek = sorted(m_dayOfWeek) // Order is likely, but not guaranteed
+                    let days = ["S","M","T","W","T","F","S"]
+                    // 1 = Sunday, 7 = Saturday
+                    let dayOfWeekMap = m2_dayOfWeek.map { days[$0 - 1] }
+                    m_cell.dayOfWeekLabel.text = ",".join(dayOfWeekMap)
+                }
+            }
+            
+            cell = m_cell
+        }
+        
+        return cell!
     }
 }
 

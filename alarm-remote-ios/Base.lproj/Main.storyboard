@@ -136,7 +136,7 @@
                                 <rect key="frame" x="0.0" y="44" width="600" height="512"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Mpm-fT-B88">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Mpm-fT-B88" customClass="AlarmTableViewCell" customModule="alarm_remote_ios" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mpm-fT-B88" id="ucz-s3-m0V">
@@ -192,6 +192,12 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dayOfWeekLabel" destination="mnV-GW-w5M" id="bBs-yi-czz"/>
+                                            <outlet property="nameLabel" destination="n9X-Et-bDl" id="70I-NW-nNG"/>
+                                            <outlet property="statusSwitch" destination="uIx-OY-qml" id="gwD-VZ-NJ0"/>
+                                            <outlet property="timeLabel" destination="P1z-TL-isI" id="Kut-fU-u2Y"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
