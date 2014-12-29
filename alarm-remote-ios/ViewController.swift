@@ -251,10 +251,38 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
                 if let m_dayOfWeek = m_alarm["dayOfWeek"] as? [Int] {
                     let m2_dayOfWeek = sorted(m_dayOfWeek) // Order is likely, but not guaranteed
-                    let days = ["S","M","T","W","T","F","S"]
-                    // 1 = Sunday, 7 = Saturday
-                    let dayOfWeekMap = m2_dayOfWeek.map { days[$0 - 1] }
-                    m_cell.dayOfWeekLabel.text = ",".join(dayOfWeekMap)
+                    let days = ["","Su","Mo","Tu","We","Th","Fr","Sa"] // 1 = Sunday, 7 = Saturday
+                    
+                    let dash = "-"
+                    var m_reduced = ""
+                    func appendDay(str: String, day: String) -> String {
+                        if day == dash {
+                            if str.hasSuffix(dash) { return str } // We already have a dash
+                            else { return str + dash } // Append the dash and return
+                        } else {
+                            return str + (!str.hasSuffix(dash) ? "," : "")  + day // Append a comma if needed and the day
+                        }
+                    }
+                    // TODO, determine if a range crosses Sat / Sun and realign the array
+                    for (index, value) in enumerate(m_dayOfWeek) {
+                        if index == 0 {
+                            m_reduced += days[value] // Just add the first value to the string
+                        } else {
+                            let prev_val = m_dayOfWeek[index - 1] // Used to determine if we have a range
+                            if index + 1 < m_dayOfWeek.count { // We're not at the end
+                                let next_val = m_dayOfWeek[index + 1] // Used to determine if we have a range
+                                if value == prev_val + 1 && value == next_val - 1 { // We have a range
+                                    m_reduced = appendDay(m_reduced, dash)
+                                } else { // No range, append the day
+                                    m_reduced = appendDay(m_reduced, days[value])
+                                }
+                            } else { // At the end
+                                m_reduced = appendDay(m_reduced, days[value])
+                            }
+                        }
+                    }
+
+                    m_cell.dayOfWeekLabel.text = m_reduced
                 }
             }
             
