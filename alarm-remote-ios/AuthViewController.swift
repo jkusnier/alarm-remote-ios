@@ -20,6 +20,8 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var centerDoneConstraint: NSLayoutConstraint!
     
     var presentingView:MainViewController?
+
+    let api = APIController()
     
     let authUrl:String = "http://api.weecode.com/alarm/v1/users"
     let defaults = NSUserDefaults.standardUserDefaults()
@@ -50,46 +52,17 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func getTokenPressed(sender: AnyObject) {
-        HUDController.sharedController.contentView = HUDContentView.ProgressView()
-        HUDController.sharedController.show()
-        
-        var request = NSMutableURLRequest(URL: NSURL(string: authUrl)!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: 5)
-        
-        let jsonString = "{\"user_id\":\"\(userNameField.text)\", \"password\":\"\(passwordField.text)\"}"
-        request.HTTPBody = jsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
-        request.HTTPMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        let queue = NSOperationQueue()
-        NSURLConnection.sendAsynchronousRequest(request, queue: queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-
-            dispatch_async(dispatch_get_main_queue(), {
-                HUDController.sharedController.hide()
-                
-                func showErrorAlert() {
-                    let alert = UIAlertController(title: "Error Authenticating", message: "Check Credentials", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
-                    self.presentViewController(alert, animated: true, completion: nil)
-                }
-
-                if let httpResponse = response as? NSHTTPURLResponse {
-                    if (httpResponse.statusCode == 200) {
-                        var error: NSError?
-                        let jsonDict = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: &error) as NSDictionary
-                        if let accessToken = jsonDict.valueForKey("accessToken") as? String {
-                            self.defaults.setValue(self.userNameField.text, forKey: Constants.kDefaultsUsernameKey)
-                            
-                            self.accessTokenField.text = accessToken
-                            self.doneButton.enabled = true
-                        }
-                    } else {
-                        showErrorAlert()
-                    }
-                } else {
-                    showErrorAlert()
-                }
-            })
-        })
+        api.getAccessToken(userNameField.text, password: passwordField.text,
+            failure: { error in
+                let alert = UIAlertController(title: "Error Authenticating", message: "Check Credentials", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            },
+            success: { accessToken in
+                self.accessTokenField.text = accessToken
+                self.doneButton.enabled = true
+            }
+        )
     }
     
     @IBAction func cancelPressed(sender: AnyObject) {

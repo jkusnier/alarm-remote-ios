@@ -13,6 +13,8 @@ class APIController {
     
     let defaults = NSUserDefaults.standardUserDefaults()
     
+    let authUrl:String = "http://api.weecode.com/alarm/v1/users"
+    
     func updateDevices(failure fail : (NSError -> ())? = { error in println(error) }, success succeed: ([String: [String: AnyObject?]] -> ())? = nil) {
         if succeed == nil { return }
         
@@ -102,6 +104,44 @@ class APIController {
                             }
                             
                             succeed!(alarms)
+                        }
+                    } else {
+                        fail!(error!)
+                    }
+                } else {
+                    fail!(error!)
+                }
+            })
+        })
+    }
+    
+    func getAccessToken(userName: String, password: String, failure fail : (NSError -> ())? = { error in println(error) }, success succeed: (String -> ())? = nil) {
+        if succeed == nil { return }
+        
+        HUDController.sharedController.contentView = HUDContentView.ProgressView()
+        HUDController.sharedController.show()
+        
+        var request = NSMutableURLRequest(URL: NSURL(string: authUrl)!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: 5)
+        
+        let jsonString = "{\"user_id\":\"\(userName)\", \"password\":\"\(password)\"}"
+        request.HTTPBody = jsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
+        request.HTTPMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let queue = NSOperationQueue()
+        NSURLConnection.sendAsynchronousRequest(request, queue: queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                HUDController.sharedController.hide()
+                
+                if let httpResponse = response as? NSHTTPURLResponse {
+                    if (httpResponse.statusCode == 200) {
+                        var error: NSError?
+                        let jsonDict = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: &error) as NSDictionary
+                        if let accessToken = jsonDict.valueForKey("accessToken") as? String {
+                            self.defaults.setValue(userName, forKey: Constants.kDefaultsUsernameKey)
+                            
+                            succeed!(accessToken)
                         }
                     } else {
                         fail!(error!)
