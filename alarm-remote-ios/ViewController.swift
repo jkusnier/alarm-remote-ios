@@ -179,10 +179,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                                     let m_id = dict.valueForKey("_id") as? String
                                     let m_dayOfWeek = dict.valueForKey("dayOfWeek") as? [Int]
                                     let m_name = dict.valueForKey("name") as? String
-                                    let m_status = dict.valueForKey("status") as? Int
+                                    let m_status = dict.valueForKey("status") as? Bool
                                     let m_time = dict.valueForKey("time") as? Int
                                     
-                                    self.alarms[m_id!] = ["_id": m_id, "dayOfWeek": m_dayOfWeek, "name": m_name, "status": m_status, "time": m_time]
+                                    self.alarms?[m_id!] = ["_id": m_id, "dayOfWeek": m_dayOfWeek, "name": m_name, "status": m_status, "time": m_time]
                                 }
                             }
                             
