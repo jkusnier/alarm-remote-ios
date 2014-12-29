@@ -19,7 +19,7 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var centerDoneConstraint: NSLayoutConstraint!
     
-    var presentingView:ViewController?
+    var presentingView:MainViewController?
     
     let authUrl:String = "http://api.weecode.com/alarm/v1/users"
     let defaults = NSUserDefaults.standardUserDefaults()

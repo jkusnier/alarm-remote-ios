@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		9600C7EC1A4B182F00263E81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600C7EB1A4B182F00263E81 /* AppDelegate.swift */; };
 		9600C7EF1A4B182F00263E81 /* alarm_remote_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9600C7ED1A4B182F00263E81 /* alarm_remote_ios.xcdatamodeld */; };
-		9600C7F11A4B182F00263E81 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600C7F01A4B182F00263E81 /* ViewController.swift */; };
+		9600C7F11A4B182F00263E81 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600C7F01A4B182F00263E81 /* MainViewController.swift */; };
 		9600C7F41A4B182F00263E81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9600C7F21A4B182F00263E81 /* Main.storyboard */; };
 		9600C7F61A4B182F00263E81 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9600C7F51A4B182F00263E81 /* Images.xcassets */; };
 		9600C7F91A4B182F00263E81 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9600C7F71A4B182F00263E81 /* LaunchScreen.xib */; };
@@ -79,7 +79,7 @@
 		9600C7EA1A4B182F00263E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9600C7EB1A4B182F00263E81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9600C7EE1A4B182F00263E81 /* alarm_remote_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = alarm_remote_ios.xcdatamodel; sourceTree = "<group>"; };
-		9600C7F01A4B182F00263E81 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9600C7F01A4B182F00263E81 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9600C7F31A4B182F00263E81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9600C7F51A4B182F00263E81 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9600C7F81A4B182F00263E81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -142,9 +142,9 @@
 				9600C7F51A4B182F00263E81 /* Images.xcassets */,
 				9600C7F71A4B182F00263E81 /* LaunchScreen.xib */,
 				9600C7F21A4B182F00263E81 /* Main.storyboard */,
+				9600C7F01A4B182F00263E81 /* MainViewController.swift */,
 				962EE8641A4EDB3100B98B90 /* SelectDeviceTableViewController.swift */,
 				9600C7E91A4B182F00263E81 /* Supporting Files */,
-				9600C7F01A4B182F00263E81 /* ViewController.swift */,
 			);
 			path = "alarm-remote-ios";
 			sourceTree = "<group>";
@@ -309,7 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9600C7F11A4B182F00263E81 /* ViewController.swift in Sources */,
+				9600C7F11A4B182F00263E81 /* MainViewController.swift in Sources */,
 				9600C7EC1A4B182F00263E81 /* AppDelegate.swift in Sources */,
 				9600C8111A4B26A700263E81 /* AuthViewController.swift in Sources */,
 				962EE8651A4EDB3100B98B90 /* SelectDeviceTableViewController.swift in Sources */,

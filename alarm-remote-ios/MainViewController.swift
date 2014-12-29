@@ -9,7 +9,7 @@
 import UIKit
 import PKHUD
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var topToolbar: UIToolbar!
     @IBOutlet weak var topToolbarConstraint: NSLayoutConstraint!

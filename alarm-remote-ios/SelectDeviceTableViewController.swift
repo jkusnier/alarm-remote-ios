@@ -10,7 +10,7 @@ import UIKit
 
 class SelectDeviceTableViewController: UITableViewController {
     
-    var presentingView:ViewController?
+    var presentingView:MainViewController?
     
     var deviceKeys:[String]?
     var devices:[String: [String: AnyObject?]]? {
