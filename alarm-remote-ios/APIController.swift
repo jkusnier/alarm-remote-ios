@@ -15,13 +15,13 @@ class APIController {
     
     let authUrl:String = "http://api.weecode.com/alarm/v1/users"
     
-    func updateDevices(failure fail : (NSError? -> ())? = { error in println(error) }, success succeed: ([String: [String: AnyObject?]] -> ())? = nil) {
+    func updateDevices(accessToken t: String? = "", failure fail: (NSError? -> ())? = { error in println(error) }, success succeed: ([String: [String: AnyObject?]] -> ())? = nil) {
         if succeed == nil { return }
         
         HUDController.sharedController.contentView = HUDContentView.ProgressView()
         HUDController.sharedController.show()
         
-        let accessToken:NSString = defaults.stringForKey(Constants.kDefaultsAccessTokenKey)!
+        let accessToken:NSString = t!.isEmpty ? defaults.stringForKey(Constants.kDefaultsAccessTokenKey)! : t!
         let devicesUrl = "http://api.weecode.com/alarm/v1/devices?access_token=\(accessToken)"
         
         var request = NSMutableURLRequest(URL: NSURL(string: devicesUrl)!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: 5)
@@ -64,14 +64,14 @@ class APIController {
         })
     }
     
-    func getDeviceAlarms(failure fail : (NSError? -> ())? = { error in println(error) }, success succeed: ([String: [String: AnyObject?]] -> ())? = nil) {
+    func getDeviceAlarms(accessToken t: String? = "", deviceId d: String? = "", failure fail : (NSError? -> ())? = { error in println(error) }, success succeed: ([String: [String: AnyObject?]] -> ())? = nil) {
         if succeed == nil { return }
         
         HUDController.sharedController.contentView = HUDContentView.ProgressView()
         HUDController.sharedController.show()
         
-        let deviceId = self.defaults.stringForKey(Constants.kDefaultsSelectedDeviceId)!
-        let accessToken:NSString = defaults.stringForKey(Constants.kDefaultsAccessTokenKey)!
+        let deviceId = d!.isEmpty ? self.defaults.stringForKey(Constants.kDefaultsSelectedDeviceId)! : d!
+        let accessToken:NSString = t!.isEmpty ? defaults.stringForKey(Constants.kDefaultsAccessTokenKey)! : t!
         let alarmsUrl = "http://api.weecode.com/alarm/v1/devices/\(deviceId)/alarms?access_token=\(accessToken)"
         
         var request = NSMutableURLRequest(URL: NSURL(string: alarmsUrl)!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: 5)
