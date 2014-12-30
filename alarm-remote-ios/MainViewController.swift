@@ -93,7 +93,17 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func dismissAuthSettings() {
-        self.modelChanged()
+        api.updateDevices(
+            failure: { error in
+                let alert = UIAlertController(title: "Error", message: "Error Retrieving Data", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            },
+            success: { devices in
+                self.devices = devices
+                self.modelChanged()
+        })
+
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
