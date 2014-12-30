@@ -191,7 +191,7 @@ class APIController {
         if let m_time = alarm["time"] as? Int {
             let hour = m_time / 60
             let minute = m_time % 60
-            let am_pm = m_time >= 12 ? "PM" : "AM"
+            let am_pm = hour >= 12 ? "PM" : "AM"
                 
             let minute_prefix = (minute < 10) ? "0" : ""
             let m_hour = (hour > 12) ? hour - 12 : (hour == 0) ? 12 : hour
