@@ -28,6 +28,8 @@ class SelectDeviceTableViewController: UITableViewController {
         }
     }
     
+    let api = APIController()
+    
     let defaults = NSUserDefaults.standardUserDefaults()
 
     override func viewDidLoad() {
@@ -35,6 +37,19 @@ class SelectDeviceTableViewController: UITableViewController {
         
         let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.height
         self.tableView.contentInset = UIEdgeInsetsMake(statusBarHeight, 0, 0, 0);
+        
+        if defaults.stringForKey(Constants.kDefaultsAccessTokenKey) != nil {
+            api.updateDevices(
+                failure: { error in
+                    let alert = UIAlertController(title: "Error", message: "Error Retrieving Data", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                },
+                success: { devices in
+                    self.devices = devices
+                    self.tableView.reloadData()
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,7 +88,7 @@ class SelectDeviceTableViewController: UITableViewController {
         }
         
         if self.presentingView != nil {
-            self.presentingView!.dismissAuthSettings()
+            self.presentingView!.dismissDeviceSelection(self.devices)
         } else {
             self.dismissViewControllerAnimated(true, completion: nil)
         }

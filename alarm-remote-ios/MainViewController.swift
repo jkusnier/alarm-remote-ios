@@ -88,12 +88,19 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         } else if (segue.identifier == "showSelectDevice") {
             if let destView = segue.destinationViewController as? SelectDeviceTableViewController {
                 destView.presentingView = self
-                destView.devices = self.devices
             }
         }
     }
     
     func dismissAuthSettings() {
+        self.modelChanged()
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func dismissDeviceSelection(devices: [String: [String: AnyObject?]]?) {
+        if let devices = devices {
+            self.devices = devices
+        }
         self.modelChanged()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
