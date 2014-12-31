@@ -18,6 +18,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var tableView: UITableView!
     
+    var editButton: UIBarButtonItem?
+    let editTitles = ["Edit", "Done"]
+    
     let api = APIController()
     
     let defaults = NSUserDefaults.standardUserDefaults()
@@ -50,9 +53,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
         let switchButton = UIBarButtonItem(title: "Switch", style: .Bordered, target: self, action: "showSelectDevice")
-        let editButton = UIBarButtonItem(title: "Edit", style: .Bordered, target: nil, action: nil)
-        
-        self.topToolbar.items = [switchButton, flexibleSpace, UIBarButtonItem(customView: self.selectedDeviceLabel), flexibleSpace, editButton]
+        self.editButton = UIBarButtonItem(title: self.editTitles.first, style: .Bordered, target: self, action: "toggleEditingMode")
+
+        self.topToolbar.items = [switchButton, flexibleSpace, UIBarButtonItem(customView: self.selectedDeviceLabel), flexibleSpace, self.editButton!]
         
         if defaults.stringForKey(Constants.kDefaultsAccessTokenKey) != nil {
             api.updateDevices(
@@ -148,6 +151,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.performSegueWithIdentifier("showSelectDevice", sender: self)
     }
     
+    func toggleEditingMode() {
+        self.tableView.setEditing(!self.tableView.editing, animated: true)
+        self.editButton?.title = self.tableView.editing ? self.editTitles.last : self.editTitles.first
+    }
+    
     // MARK: - Table view data source
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -175,6 +183,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
             cell = m_cell
         }
+        
+        cell?.editingAccessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         
         return cell!
     }

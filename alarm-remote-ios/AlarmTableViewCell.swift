@@ -14,10 +14,13 @@ class AlarmTableViewCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dayOfWeekLabel: UILabel!
-    @IBOutlet weak var statusSwitch: UISwitch!
+    var statusSwitch: UISwitch!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.statusSwitch = UISwitch()
+        self.accessoryView = self.statusSwitch
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

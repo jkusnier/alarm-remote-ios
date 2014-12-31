@@ -142,9 +142,6 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mpm-fT-B88" id="ucz-s3-m0V">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uIx-OY-qml">
-                                                    <rect key="frame" x="515" y="6" width="51" height="31"/>
-                                                </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:50 PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1z-TL-isI">
                                                     <rect key="frame" x="36" y="6" width="100" height="20.5"/>
                                                     <constraints>
@@ -164,7 +161,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M - F" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnV-GW-w5M">
-                                                    <rect key="frame" x="295" y="11.5" width="200" height="20.5"/>
+                                                    <rect key="frame" x="372" y="11.5" width="200" height="20.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="200" id="srG-K0-dSP"/>
                                                     </constraints>
@@ -176,13 +173,11 @@
                                             <constraints>
                                                 <constraint firstItem="P1z-TL-isI" firstAttribute="top" secondItem="ucz-s3-m0V" secondAttribute="topMargin" constant="-2" id="5Ob-g8-Z6x"/>
                                                 <constraint firstItem="mnV-GW-w5M" firstAttribute="leading" secondItem="n9X-Et-bDl" secondAttribute="trailing" constant="8" id="6CV-MH-ovw"/>
-                                                <constraint firstItem="uIx-OY-qml" firstAttribute="leading" secondItem="mnV-GW-w5M" secondAttribute="trailing" constant="20" id="9Vp-Sv-jld"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="mnV-GW-w5M" secondAttribute="trailing" constant="20" id="6rD-Hw-g2X"/>
                                                 <constraint firstItem="n9X-Et-bDl" firstAttribute="top" secondItem="ucz-s3-m0V" secondAttribute="topMargin" constant="14" id="H3c-0R-qVM"/>
                                                 <constraint firstItem="P1z-TL-isI" firstAttribute="leading" secondItem="ucz-s3-m0V" secondAttribute="leadingMargin" constant="28" id="S5B-ZS-eSc"/>
-                                                <constraint firstItem="uIx-OY-qml" firstAttribute="centerY" secondItem="mnV-GW-w5M" secondAttribute="centerY" id="XcA-uL-iO4"/>
                                                 <constraint firstItem="P1z-TL-isI" firstAttribute="leading" secondItem="n9X-Et-bDl" secondAttribute="leading" id="clg-5Z-4kW"/>
-                                                <constraint firstAttribute="centerY" secondItem="uIx-OY-qml" secondAttribute="centerY" id="f9f-kb-AJw"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="uIx-OY-qml" secondAttribute="trailing" constant="28" id="gXu-db-GPQ"/>
+                                                <constraint firstAttribute="centerY" secondItem="mnV-GW-w5M" secondAttribute="centerY" id="gjb-yn-w23"/>
                                                 <constraint firstItem="P1z-TL-isI" firstAttribute="top" secondItem="mnV-GW-w5M" secondAttribute="top" id="wQZ-YM-GCL"/>
                                             </constraints>
                                             <variation key="default">
@@ -195,7 +190,6 @@
                                         <connections>
                                             <outlet property="dayOfWeekLabel" destination="mnV-GW-w5M" id="bBs-yi-czz"/>
                                             <outlet property="nameLabel" destination="n9X-Et-bDl" id="70I-NW-nNG"/>
-                                            <outlet property="statusSwitch" destination="uIx-OY-qml" id="gwD-VZ-NJ0"/>
                                             <outlet property="timeLabel" destination="P1z-TL-isI" id="Kut-fU-u2Y"/>
                                         </connections>
                                     </tableViewCell>
