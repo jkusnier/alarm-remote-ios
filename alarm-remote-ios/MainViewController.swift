@@ -11,9 +11,6 @@ import PKHUD
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var topToolbar: UIToolbar!
-    @IBOutlet weak var topToolbarConstraint: NSLayoutConstraint!
-
     @IBOutlet weak var bottomToolbar: UIToolbar!
 
     @IBOutlet weak var tableView: UITableView!
@@ -43,19 +40,16 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
     }
-    
-    let selectedDeviceLabel = UILabel()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.topToolbarConstraint.constant = UIApplication.sharedApplication().statusBarFrame.height
-        
+
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
         let switchButton = UIBarButtonItem(title: "Switch", style: .Bordered, target: self, action: "showSelectDevice")
         self.editButton = UIBarButtonItem(title: self.editTitles.first, style: .Bordered, target: self, action: "toggleEditingMode")
 
-        self.topToolbar.items = [switchButton, flexibleSpace, UIBarButtonItem(customView: self.selectedDeviceLabel), flexibleSpace, self.editButton!]
+        self.navigationItem.leftBarButtonItem = switchButton
+        self.navigationItem.rightBarButtonItem = self.editButton
         
         if defaults.stringForKey(Constants.kDefaultsAccessTokenKey) != nil {
             api.updateDevices(
@@ -143,8 +137,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let defaultDevice = self.defaults.stringForKey(Constants.kDefaultsSelectedDeviceId)!
         if let m_device = self.devices[defaultDevice] {
             if let m_name = m_device["name"] as? String {
-                self.selectedDeviceLabel.text = m_name
-                self.selectedDeviceLabel.sizeToFit()
+                self.title = m_name
             }
         }
     }
