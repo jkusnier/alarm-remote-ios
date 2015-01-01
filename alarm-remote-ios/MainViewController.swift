@@ -84,13 +84,15 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if contains(["showAuth", "showAuthSettings"], segue.identifier!) {
-            if let destView = segue.destinationViewController as? AuthViewController {
-                destView.presentingView = self
-            }
-        } else if (segue.identifier == "showSelectDevice") {
-            if let destView = segue.destinationViewController as? SelectDeviceTableViewController {
-                destView.presentingView = self
+        if let identifier = segue.identifier {
+            if contains(["showAuth", "showAuthSettings"], identifier) {
+                if let destView = segue.destinationViewController as? AuthViewController {
+                    destView.presentingView = self
+                }
+            } else if (identifier == "showSelectDevice") {
+                if let destView = segue.destinationViewController as? SelectDeviceTableViewController {
+                    destView.presentingView = self
+                }
             }
         }
     }
