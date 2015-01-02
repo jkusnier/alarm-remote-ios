@@ -51,6 +51,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationItem.leftBarButtonItem = switchButton
         self.navigationItem.rightBarButtonItem = self.editButton
         
+        self.tableView.allowsSelection = false
+        self.tableView.allowsSelectionDuringEditing = true
+        
         if defaults.stringForKey(Constants.kDefaultsAccessTokenKey) != nil {
             api.updateDevices(
                 failure: { error in
@@ -87,6 +90,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 if let destView = segue.destinationViewController as? SelectDeviceTableViewController {
                     destView.presentingView = self
                 }
+            } else if (identifier == "showAlarmEditor") {
             }
         }
     }
