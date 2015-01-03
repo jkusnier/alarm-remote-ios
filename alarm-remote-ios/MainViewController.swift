@@ -187,5 +187,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return cell!
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // Prevent the selection from sticking
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
 }
 
