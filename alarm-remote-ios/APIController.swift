@@ -153,6 +153,42 @@ class APIController {
         })
     }
     
+    func setAlarmStatus(accessToken t: String? = "", deviceId d: String? = "", alarmId a: String? = "", alarmStatus: Bool, failure fail : (NSError? -> ())? = { error in println(error) }, success succeed: (() -> ())? = nil) {
+        if succeed == nil { return }
+        
+        HUDController.sharedController.contentView = HUDContentView.ProgressView()
+        HUDController.sharedController.show()
+        
+        let accessToken:NSString = t!.isEmpty ? defaults.stringForKey(Constants.kDefaultsAccessTokenKey)! : t!
+        let deviceId:String = d!
+        let alarmId:String = a!
+        let alarmsUrl = "http://api.weecode.com/alarm/v1/devices/\(deviceId)/alarms/\(alarmId)?access_token=\(accessToken)"
+        
+        var request = NSMutableURLRequest(URL: NSURL(string: alarmsUrl)!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: 5)
+        
+        let jsonString = "{\"status\":\"\(alarmStatus)\"}"
+        request.HTTPBody = jsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
+        request.HTTPMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let queue = NSOperationQueue()
+        NSURLConnection.sendAsynchronousRequest(request, queue: queue, completionHandler: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+            dispatch_async(dispatch_get_main_queue(), {
+                HUDController.sharedController.hide()
+                
+                if let httpResponse = response as? NSHTTPURLResponse {
+                    if (httpResponse.statusCode == 200) {
+                        succeed!()
+                    } else {
+                        fail!(error)
+                    }
+                } else {
+                    fail!(error)
+                }
+            })
+        })
+    }
+    
     func testAccessToken(userName: String, accessToken: String, failure fail : (NSError? -> ())? = { error in println(error) }, success succeed: (() -> ())? = nil) {
         
         if (!accessToken.isEmpty) {
