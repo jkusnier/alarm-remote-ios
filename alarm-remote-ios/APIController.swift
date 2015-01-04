@@ -94,12 +94,13 @@ class APIController {
                             for item in jsonArr! {
                                 if let dict = item as? NSDictionary {
                                     let m_id = dict.valueForKey("_id") as? String
+                                    let m_deviceId = dict.valueForKey("deviceId") as? String
                                     let m_dayOfWeek = dict.valueForKey("dayOfWeek") as? [Int]
                                     let m_name = dict.valueForKey("name") as? String
                                     let m_status = dict.valueForKey("status") as? Bool
                                     let m_time = dict.valueForKey("time") as? Int
                                     
-                                    alarms[m_id!] = ["_id": m_id, "dayOfWeek": m_dayOfWeek, "name": m_name, "status": m_status, "time": m_time]
+                                    alarms[m_id!] = ["_id": m_id, "deviceId": m_deviceId, "dayOfWeek": m_dayOfWeek, "name": m_name, "status": m_status, "time": m_time]
                                 }
                             }
                             
@@ -166,7 +167,7 @@ class APIController {
         
         var request = NSMutableURLRequest(URL: NSURL(string: alarmsUrl)!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: 5)
         
-        let jsonString = "{\"status\":\"\(alarmStatus)\"}"
+        let jsonString = "{\"status\":\(alarmStatus)}"
         request.HTTPBody = jsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")

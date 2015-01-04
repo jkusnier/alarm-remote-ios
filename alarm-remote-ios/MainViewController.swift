@@ -168,6 +168,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if let m_cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as? AlarmTableViewCell {
             if let m_alarm = self.alarms?[m_alarmId] {
+                m_cell.alarm = m_alarm
                 let f_alarm = api.formatAlarmForMainCell(m_alarm)
                 
                 m_cell.nameLabel.text = f_alarm["name"] as? String
