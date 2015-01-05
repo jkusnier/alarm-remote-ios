@@ -16,7 +16,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     
     var editButton: UIBarButtonItem?
-    let editTitles = ["Edit", "Done"]
+    let editTitles = [Constants.kEditName, Constants.kDoneName]
     
     let api = APIController()
     
@@ -45,7 +45,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
 
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
-        let switchButton = UIBarButtonItem(title: "Switch", style: .Bordered, target: self, action: "showSelectDevice")
+        let switchButton = UIBarButtonItem(title: Constants.kDeviceSelectionButtonName, style: .Bordered, target: self, action: "showSelectDevice")
         self.editButton = UIBarButtonItem(title: self.editTitles.first, style: .Bordered, target: self, action: "toggleEditingMode")
 
         self.navigationItem.leftBarButtonItem = switchButton
