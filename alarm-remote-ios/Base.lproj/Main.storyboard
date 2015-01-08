@@ -232,10 +232,10 @@
             </objects>
             <point key="canvasLocation" x="1249" y="420"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Edit Alarm Table View Controller-->
         <scene sceneID="Lyj-GZ-BI2">
             <objects>
-                <tableViewController id="hLd-x7-LBJ" sceneMemberID="viewController">
+                <tableViewController id="hLd-x7-LBJ" customClass="EditAlarmTableViewController" customModule="alarm_remote_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="pBg-qe-Hg3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
