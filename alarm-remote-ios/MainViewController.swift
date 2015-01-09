@@ -91,6 +91,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                     destView.presentingView = self
                 }
             } else if (identifier == "showAlarmEditor") {
+                if let destView = segue.destinationViewController as? EditAlarmTableViewController {
+                    if let cell = sender as? AlarmTableViewCell {
+                        destView.alarm = cell.alarm
+                    }
+                }
             }
         }
     }

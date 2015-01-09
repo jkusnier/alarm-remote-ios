@@ -10,6 +10,8 @@ import UIKit
 
 class EditAlarmTableViewController: UITableViewController {
 
+    var alarm: [String: AnyObject?]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
