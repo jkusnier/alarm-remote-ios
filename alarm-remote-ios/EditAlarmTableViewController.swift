@@ -10,6 +10,10 @@ import UIKit
 
 class EditAlarmTableViewController: UITableViewController {
 
+    @IBOutlet weak var nameText: UITextField!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var statusSwitch: UISwitch!
+    
     @IBOutlet weak var sundayCell: UITableViewCell!
     @IBOutlet weak var mondayCell: UITableViewCell!
     @IBOutlet weak var tuesdayCell: UITableViewCell!

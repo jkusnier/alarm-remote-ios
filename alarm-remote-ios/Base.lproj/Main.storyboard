@@ -444,9 +444,12 @@
                     <connections>
                         <outlet property="fridayCell" destination="dzf-Qq-ZwE" id="Zwl-GR-0AW"/>
                         <outlet property="mondayCell" destination="WcK-qw-YkK" id="xU9-HL-qEZ"/>
+                        <outlet property="nameText" destination="yp7-zm-dcr" id="7WW-4E-OBP"/>
                         <outlet property="saturdayCell" destination="8c0-qa-8FY" id="jLI-gr-qdR"/>
+                        <outlet property="statusSwitch" destination="JDF-1B-N9r" id="6Vq-Qf-4O8"/>
                         <outlet property="sundayCell" destination="i8k-Xj-NFR" id="ind-3O-E0c"/>
                         <outlet property="thursdayCell" destination="ByZ-sR-M9s" id="MrM-GC-Zkq"/>
+                        <outlet property="timeLabel" destination="BXf-mv-z3C" id="cPc-65-b9S"/>
                         <outlet property="tuesdayCell" destination="SvD-Rv-6kC" id="kGF-P0-Lls"/>
                         <outlet property="wednesdayCell" destination="CtS-Eq-xwn" id="6F4-NQ-Bse"/>
                     </connections>
