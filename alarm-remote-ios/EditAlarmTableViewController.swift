@@ -44,6 +44,9 @@ class EditAlarmTableViewController: UITableViewController {
     
     private func reloadData() {
         if self.isViewLoaded() {
+            let deviceName = self.alarm?["name"] as? String
+            self.nameText.text = deviceName
+            
             if let dayOfWeek = self.alarm?["dayOfWeek"] as? [Int] {
                 self.sundayCell.accessoryType = UITableViewCellAccessoryType.None
                 self.mondayCell.accessoryType = UITableViewCellAccessoryType.None
