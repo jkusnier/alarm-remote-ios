@@ -11,7 +11,6 @@ import UIKit
 class EditAlarmTableViewController: UITableViewController {
 
     @IBOutlet weak var nameText: UITextField!
-    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var statusSwitch: UISwitch!
     
     @IBOutlet weak var sundayCell: UITableViewCell!
@@ -22,6 +21,9 @@ class EditAlarmTableViewController: UITableViewController {
     @IBOutlet weak var fridayCell: UITableViewCell!
     @IBOutlet weak var saturdayCell: UITableViewCell!
     
+    @IBOutlet weak var timeText: UITextField!
+    @IBOutlet var datePicker: UIDatePicker!
+
     var alarm: [String: AnyObject?]? {
         didSet {
             self.reloadData()
@@ -32,6 +34,8 @@ class EditAlarmTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.timeText.inputView = self.datePicker
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,7 +57,7 @@ class EditAlarmTableViewController: UITableViewController {
                 self.nameText.text = deviceName
                 
                 let alarmTime = f_alarm["time"] as? String
-                self.timeLabel.text = alarmTime
+                self.timeText.text = alarmTime
                 
                 if let alarmStatus = alarm["status"] as? Bool {
                     self.statusSwitch.on = alarmStatus
