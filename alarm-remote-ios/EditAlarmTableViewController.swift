@@ -22,7 +22,6 @@ class EditAlarmTableViewController: UITableViewController {
     @IBOutlet weak var saturdayCell: UITableViewCell!
     
     @IBOutlet weak var timeText: UITextField!
-    @IBOutlet var datePicker: UIDatePicker!
 
     var alarm: [String: AnyObject?]? {
         didSet {
@@ -34,8 +33,6 @@ class EditAlarmTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.timeText.inputView = self.datePicker
     }
 
     override func didReceiveMemoryWarning() {
@@ -97,5 +94,19 @@ class EditAlarmTableViewController: UITableViewController {
                 }
             }
         }
+    }
+    
+    @IBAction func datepicker(sender: UITextField) {
+        var datePickerView  : UIDatePicker = UIDatePicker()
+        datePickerView.datePickerMode = UIDatePickerMode.Time
+        sender.inputView = datePickerView
+        datePickerView.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
+        
+    }
+    
+    func handleDatePicker(sender: UIDatePicker) {
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "h:mm a"
+        self.timeText.text = dateFormatter.stringFromDate(sender.date)
     }
 }
