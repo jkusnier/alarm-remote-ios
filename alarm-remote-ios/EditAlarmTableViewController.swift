@@ -100,6 +100,13 @@ class EditAlarmTableViewController: UITableViewController {
         var datePickerView  : UIDatePicker = UIDatePicker()
         datePickerView.datePickerMode = UIDatePickerMode.Time
         sender.inputView = datePickerView
+        
+        let dateStringFormatter = NSDateFormatter()
+        dateStringFormatter.dateFormat = "h:mm a"
+        dateStringFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        let d = dateStringFormatter.dateFromString(self.timeText.text)
+        datePickerView.setDate(d!, animated: false)
+        
         datePickerView.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
         
     }
