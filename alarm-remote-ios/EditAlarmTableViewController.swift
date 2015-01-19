@@ -33,6 +33,10 @@ class EditAlarmTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let saveButton = UIBarButtonItem(title: "Save", style: .Bordered, target: self, action: "saveAlarm")
+        self.navigationItem.rightBarButtonItem = saveButton
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -112,5 +116,9 @@ class EditAlarmTableViewController: UITableViewController {
         var dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "h:mm a"
         self.timeText.text = dateFormatter.stringFromDate(sender.date)
+    }
+    
+    func saveAlarm() {
+        println("Save Alarm")
     }
 }
