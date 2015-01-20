@@ -120,5 +120,37 @@ class EditAlarmTableViewController: UITableViewController {
     
     func saveAlarm() {
         println("Save Alarm")
+        
+        let name = self.nameText.text
+        let time = self.timeText.text // FIXME this needs to convert to int value of minutes
+        let status = self.statusSwitch.on
+        var dayOfWeek: [Int]? = [Int]()
+        
+        if self.sundayCell.accessoryType == UITableViewCellAccessoryType.Checkmark {
+            dayOfWeek?.append(1)
+        }
+        if self.mondayCell.accessoryType == UITableViewCellAccessoryType.Checkmark {
+            dayOfWeek?.append(2)
+        }
+        if self.tuesdayCell.accessoryType == UITableViewCellAccessoryType.Checkmark {
+            dayOfWeek?.append(3)
+        }
+        if self.wednesdayCell.accessoryType == UITableViewCellAccessoryType.Checkmark {
+            dayOfWeek?.append(4)
+        }
+        if self.thursdayCell.accessoryType == UITableViewCellAccessoryType.Checkmark {
+            dayOfWeek?.append(5)
+        }
+        if self.fridayCell.accessoryType == UITableViewCellAccessoryType.Checkmark {
+            dayOfWeek?.append(6)
+        }
+        if self.saturdayCell.accessoryType == UITableViewCellAccessoryType.Checkmark {
+            dayOfWeek?.append(7)
+        }
+        
+        println("Name: \(name)")
+        println("Time: \(time)")
+        println("Status: \(status)")
+        println("Days: \(dayOfWeek)")
     }
 }
