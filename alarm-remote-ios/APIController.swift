@@ -190,6 +190,9 @@ class APIController {
         })
     }
     
+    func updateAlarm(accessToken t: String? = "", deviceId d: String? = "", alarmId a: String? = "", alarmName: String?, alarmTime: Int?, alarmStatus: Bool?, alarmDayOfWeek: [Int]?, failure fail : (NSError? -> ())? = { error in println(error) }, success succeed: (() -> ())? = nil) {
+    }
+    
     func testAccessToken(userName: String, accessToken: String, failure fail : (NSError? -> ())? = { error in println(error) }, success succeed: (() -> ())? = nil) {
         
         if (!accessToken.isEmpty) {
