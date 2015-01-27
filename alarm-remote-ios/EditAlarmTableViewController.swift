@@ -123,6 +123,16 @@ class EditAlarmTableViewController: UITableViewController {
         
         let name = self.nameText.text
         let time = self.timeText.text // FIXME this needs to convert to int value of minutes
+        let timeParts = time.componentsSeparatedByString(":")
+        var timeInt:Int?
+        if let hours = timeParts.first?.toInt() {
+            if let minuteParts = timeParts.last?.componentsSeparatedByString(" ") {
+                if let minutes = minuteParts.first?.toInt() {
+                    var actualHours = minuteParts.last == "PM" ? hours + 12 : hours
+                    timeInt = (actualHours * 60) + minutes
+                }
+            }
+        }
         let status = self.statusSwitch.on
         var dayOfWeek: [Int]? = [Int]()
         
@@ -150,6 +160,7 @@ class EditAlarmTableViewController: UITableViewController {
         
         println("Name: \(name)")
         println("Time: \(time)")
+        println("Time Int: \(timeInt)")
         println("Status: \(status)")
         println("Days: \(dayOfWeek)")
     }
