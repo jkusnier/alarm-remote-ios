@@ -163,5 +163,12 @@ class EditAlarmTableViewController: UITableViewController {
         println("Time Int: \(timeInt)")
         println("Status: \(status)")
         println("Days: \(dayOfWeek)")
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 1 {
+            if let cell = tableView.cellForRowAtIndexPath(indexPath) {
+                cell.accessoryType = cell.accessoryType == UITableViewCellAccessoryType.Checkmark ? UITableViewCellAccessoryType.None : UITableViewCellAccessoryType.Checkmark
+            }
+        }
     }
 }
