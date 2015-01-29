@@ -163,6 +163,18 @@ class EditAlarmTableViewController: UITableViewController {
         println("Time Int: \(timeInt)")
         println("Status: \(status)")
         println("Days: \(dayOfWeek)")
+        
+        let deviceId = self.alarm?["deviceId"] as? String
+        let alarmId = self.alarm?["_id"] as? String
+        
+        self.api.updateAlarm(deviceId: deviceId, alarmId: alarmId, alarmName: name, alarmTime: timeInt, alarmStatus: status, alarmDayOfWeek: dayOfWeek,
+            failure: {error in
+                println("ERROR: \(error)")
+            },
+            success: {
+                println("SUCCESS")
+        })
+    }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 1 {
