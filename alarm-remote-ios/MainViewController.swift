@@ -94,6 +94,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 if let destView = segue.destinationViewController as? EditAlarmTableViewController {
                     if let cell = sender as? AlarmTableViewCell {
                         destView.alarm = cell.alarm
+                        destView.delegateViewController = self
                     }
                 }
             }

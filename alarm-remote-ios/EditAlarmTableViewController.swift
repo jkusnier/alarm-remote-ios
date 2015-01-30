@@ -22,6 +22,8 @@ class EditAlarmTableViewController: UITableViewController {
     @IBOutlet weak var saturdayCell: UITableViewCell!
     
     @IBOutlet weak var timeText: UITextField!
+    
+    var delegateViewController: MainViewController?
 
     var alarm: [String: AnyObject?]? {
         didSet {
@@ -173,6 +175,9 @@ class EditAlarmTableViewController: UITableViewController {
             },
             success: {
                 println("SUCCESS")
+                if let delegateViewController = self.delegateViewController {
+                    delegateViewController.modelChanged()
+                }
         })
     }
     
