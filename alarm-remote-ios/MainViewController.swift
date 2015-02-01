@@ -17,7 +17,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var switchButton: UIBarButtonItem?
     var editButton: UIBarButtonItem?
-    let editTitles = [Constants.kEditName, Constants.kDoneName]
+    var doneButton: UIBarButtonItem?
     var addButton: UIBarButtonItem?
     
     let api = APIController()
@@ -48,7 +48,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
         self.switchButton = UIBarButtonItem(title: Constants.kDeviceSelectionButtonName, style: .Bordered, target: self, action: "showSelectDevice")
-        self.editButton = UIBarButtonItem(title: self.editTitles.first, style: .Bordered, target: self, action: "toggleEditingMode")
+        self.editButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: "toggleEditingMode")
+        self.doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "toggleEditingMode")
         self.addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addAlarm")
 
         self.navigationItem.leftBarButtonItem = self.switchButton
@@ -161,7 +162,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func toggleEditingMode() {
         self.tableView.setEditing(!self.tableView.editing, animated: true)
-        self.editButton?.title = self.tableView.editing ? self.editTitles.last : self.editTitles.first
+        self.navigationItem.rightBarButtonItem = self.tableView.editing ? self.doneButton : self.editButton
         self.navigationItem.leftBarButtonItem = self.tableView.editing ? self.addButton : self.switchButton
     }
     
