@@ -169,16 +169,21 @@ class EditAlarmTableViewController: UITableViewController {
         let deviceId = self.alarm?["deviceId"] as? String
         let alarmId = self.alarm?["_id"] as? String
         
-        self.api.updateAlarm(deviceId: deviceId, alarmId: alarmId, alarmName: name, alarmTime: timeInt, alarmStatus: status, alarmDayOfWeek: dayOfWeek,
-            failure: {error in
-                println("ERROR: \(error)")
-            },
-            success: {
-                println("SUCCESS")
-                if let delegateViewController = self.delegateViewController {
-                    delegateViewController.modelChanged()
-                }
-        })
+        if let alarmId = alarmId {
+            self.api.updateAlarm(deviceId: deviceId, alarmId: alarmId, alarmName: name, alarmTime: timeInt, alarmStatus: status, alarmDayOfWeek: dayOfWeek,
+                failure: {error in
+                    println("ERROR: \(error)")
+                },
+                success: {
+                    println("SUCCESS")
+                    if let delegateViewController = self.delegateViewController {
+                        delegateViewController.modelChanged()
+                    }
+            })
+        } else {
+            // This will be an add
+            println("Add Alarm Not Implemented")
+        }
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
