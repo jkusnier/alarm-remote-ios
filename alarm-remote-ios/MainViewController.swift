@@ -99,6 +99,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                     if let cell = sender as? AlarmTableViewCell {
                         destView.alarm = cell.alarm
                         destView.delegateViewController = self
+                    } else {
+                        // No sell was selected for edit. This will be an add action.
+                        // Create an empty alarm object, with our device id
+                        destView.alarm = [String: AnyObject?]()
+                        destView.alarm?["deviceId"] = self.defaults.stringForKey(Constants.kDefaultsSelectedDeviceId)
+                        destView.delegateViewController = self
                     }
                 }
             }
