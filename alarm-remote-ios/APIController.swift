@@ -138,7 +138,7 @@ class APIController {
                 if let httpResponse = response as? NSHTTPURLResponse {
                     if (httpResponse.statusCode == 200) {
                         var error: NSError?
-                        let jsonDict = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: &error) as NSDictionary
+                        let jsonDict = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: &error) as! NSDictionary
                         if let accessToken = jsonDict.valueForKey("accessToken") as? String {
                             self.defaults.setValue(userName, forKey: Constants.kDefaultsUsernameKey)
                             
@@ -255,7 +255,7 @@ class APIController {
                     
                     if (jsonData != nil) {
                         var error: NSError?
-                        let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData!, options: nil, error: &error) as NSDictionary
+                        let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData!, options: nil, error: &error) as! NSDictionary
                         
                         if (userName == jsonDict.valueForKey("_id") as? String) {
                             self.defaults.setValue(accessToken, forKey: Constants.kDefaultsAccessTokenKey)
