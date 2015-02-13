@@ -67,10 +67,10 @@ class SelectDeviceTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
 
         if let key = self.deviceKeys?[indexPath.row] {
-            if let name = self.devices?[key]?["name"] as? String {
+            if let name = self.devices?[key]?["name"]? as? String {
                 cell.textLabel?.text = name
             }
             
