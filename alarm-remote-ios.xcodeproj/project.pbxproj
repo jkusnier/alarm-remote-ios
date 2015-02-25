@@ -204,6 +204,7 @@
 				9600C7E21A4B182F00263E81 /* Sources */,
 				9600C7E31A4B182F00263E81 /* Frameworks */,
 				9600C7E41A4B182F00263E81 /* Resources */,
+				961B08141A9BF630009C511D /* ShellScript */,
 				966DF8621A4CE87900F8DF1A /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -315,6 +316,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		961B08141A9BF630009C511D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "versionnum=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nnewsubversion=`echo $versionnum | awk -F \".\" '{print $3}'`\nnewsubversion=$(($newsubversion + 1))\nnewversionstring=`echo $versionnum | awk -F \".\" '{print $1 \".\" $2 \".'$newsubversion'\" }'`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $newversionstring\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n\nbuild=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuild=$(($build + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $build\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n\n#/usr/libexec/PlistBuddy \"$SRCROOT/alarm-remote-ios/Settings.bundle/Root.plist\" -c \"Set PreferenceSpecifiers:4:DefaultValue $newversionstring ($build)\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9600C7E21A4B182F00263E81 /* Sources */ = {
@@ -467,7 +484,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "alarm-remote-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -479,7 +496,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "alarm-remote-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
