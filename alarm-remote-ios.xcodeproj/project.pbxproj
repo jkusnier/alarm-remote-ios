@@ -320,14 +320,14 @@
 /* Begin PBXShellScriptBuildPhase section */
 		961B08141A9BF630009C511D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "versionnum=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nnewsubversion=`echo $versionnum | awk -F \".\" '{print $3}'`\nnewsubversion=$(($newsubversion + 1))\nnewversionstring=`echo $versionnum | awk -F \".\" '{print $1 \".\" $2 \".'$newsubversion'\" }'`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $newversionstring\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n\nbuild=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuild=$(($build + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $build\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n\n#/usr/libexec/PlistBuddy \"$SRCROOT/alarm-remote-ios/Settings.bundle/Root.plist\" -c \"Set PreferenceSpecifiers:4:DefaultValue $newversionstring ($build)\"";
 		};
