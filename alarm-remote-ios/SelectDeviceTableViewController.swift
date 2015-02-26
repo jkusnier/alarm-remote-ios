@@ -76,6 +76,8 @@ class SelectDeviceTableViewController: UITableViewController {
             
             if self.defaults.stringForKey(Constants.kDefaultsSelectedDeviceId) == key {
                 cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            } else {
+                cell.accessoryType = UITableViewCellAccessoryType.None
             }
         }
 
@@ -87,19 +89,7 @@ class SelectDeviceTableViewController: UITableViewController {
             self.defaults.setObject(key, forKey: Constants.kDefaultsSelectedDeviceId)
         }
         
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let numSections = tableView.numberOfSections()
-        for i in 0..<numSections {
-            let numRows = tableView.numberOfRowsInSection(i)
-            for j in 0..<numRows {
-                if let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: j, inSection: i)) {
-                    cell.accessoryType = UITableViewCellAccessoryType.None
-                }
-            }
-        }
-        if let cell = tableView.cellForRowAtIndexPath(indexPath) {
-            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
-        }
+        tableView.reloadSections(NSIndexSet(index: indexPath.section), withRowAnimation: UITableViewRowAnimation.Automatic)
     }
 
     @IBAction func donePressed(sender: AnyObject) {
