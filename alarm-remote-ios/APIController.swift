@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import PKHUD
+//import PKHUD
 
 class APIController {
     
@@ -18,8 +18,8 @@ class APIController {
     func updateDevices(accessToken t: String? = "", failure fail: (NSError? -> ())? = { error in println(error) }, success succeed: ([String: [String: AnyObject?]] -> ())? = nil) {
         if succeed == nil { return }
         
-        HUDController.sharedController.contentView = HUDContentView.ProgressView()
-        HUDController.sharedController.show()
+//        HUDController.sharedController.contentView = HUDContentView.ProgressView()
+//        HUDController.sharedController.show()
         
         let accessToken:NSString = t!.isEmpty ? defaults.stringForKey(Constants.kDefaultsAccessTokenKey)! : t!
         let devicesUrl = "http://api.weecode.com/alarm/v1/devices?access_token=\(accessToken)"
@@ -29,7 +29,7 @@ class APIController {
         
         NSURLConnection.sendAsynchronousRequest(request, queue: queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
             dispatch_async(dispatch_get_main_queue(), {
-                HUDController.sharedController.hide()
+//                HUDController.sharedController.hide()
 
                 if let httpResponse = response as? NSHTTPURLResponse {
                     if (httpResponse.statusCode == 200) {
@@ -67,8 +67,8 @@ class APIController {
     func getDeviceAlarms(accessToken t: String? = "", deviceId d: String? = "", failure fail : (NSError? -> ())? = { error in println(error) }, success succeed: ([String: [String: AnyObject?]] -> ())? = nil) {
         if succeed == nil { return }
         
-        HUDController.sharedController.contentView = HUDContentView.ProgressView()
-        HUDController.sharedController.show()
+//        HUDController.sharedController.contentView = HUDContentView.ProgressView()
+//        HUDController.sharedController.show()
         
         let deviceId = d!.isEmpty ? self.defaults.stringForKey(Constants.kDefaultsSelectedDeviceId)! : d!
         let accessToken:NSString = t!.isEmpty ? defaults.stringForKey(Constants.kDefaultsAccessTokenKey)! : t!
@@ -79,7 +79,7 @@ class APIController {
         
         NSURLConnection.sendAsynchronousRequest(request, queue: queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
             dispatch_async(dispatch_get_main_queue(), {
-                HUDController.sharedController.hide()
+//                HUDController.sharedController.hide()
                 
                 if let httpResponse = response as? NSHTTPURLResponse {
                     if (httpResponse.statusCode == 200) {
@@ -119,8 +119,8 @@ class APIController {
     func getAccessToken(userName: String, password: String, failure fail : (NSError? -> ())? = { error in println(error) }, success succeed: (String -> ())? = nil) {
         if succeed == nil { return }
         
-        HUDController.sharedController.contentView = HUDContentView.ProgressView()
-        HUDController.sharedController.show()
+//        HUDController.sharedController.contentView = HUDContentView.ProgressView()
+//        HUDController.sharedController.show()
         
         var request = NSMutableURLRequest(URL: NSURL(string: authUrl)!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: 5)
         
@@ -133,12 +133,12 @@ class APIController {
         NSURLConnection.sendAsynchronousRequest(request, queue: queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
             
             dispatch_async(dispatch_get_main_queue(), {
-                HUDController.sharedController.hide()
+//                HUDController.sharedController.hide()
                 
                 if let httpResponse = response as? NSHTTPURLResponse {
                     if (httpResponse.statusCode == 200) {
                         var error: NSError?
-                        let jsonDict = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: &error) as NSDictionary
+                        let jsonDict = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: &error) as! NSDictionary
                         if let accessToken = jsonDict.valueForKey("accessToken") as? String {
                             self.defaults.setValue(userName, forKey: Constants.kDefaultsUsernameKey)
                             
@@ -157,8 +157,8 @@ class APIController {
     func setAlarmStatus(accessToken t: String? = "", deviceId d: String? = "", alarmId a: String? = "", alarmStatus: Bool, failure fail : (NSError? -> ())? = { error in println(error) }, success succeed: (() -> ())? = nil) {
         if succeed == nil { return }
         
-        HUDController.sharedController.contentView = HUDContentView.ProgressView()
-        HUDController.sharedController.show()
+//        HUDController.sharedController.contentView = HUDContentView.ProgressView()
+//        HUDController.sharedController.show()
         
         let accessToken:NSString = t!.isEmpty ? defaults.stringForKey(Constants.kDefaultsAccessTokenKey)! : t!
         let deviceId:String = d!
@@ -175,7 +175,7 @@ class APIController {
         let queue = NSOperationQueue()
         NSURLConnection.sendAsynchronousRequest(request, queue: queue, completionHandler: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
             dispatch_async(dispatch_get_main_queue(), {
-                HUDController.sharedController.hide()
+//                HUDController.sharedController.hide()
                 
                 if let httpResponse = response as? NSHTTPURLResponse {
                     if (httpResponse.statusCode == 200) {
@@ -194,8 +194,8 @@ class APIController {
         
         if succeed == nil { return }
         
-        HUDController.sharedController.contentView = HUDContentView.ProgressView()
-        HUDController.sharedController.show()
+//        HUDController.sharedController.contentView = HUDContentView.ProgressView()
+//        HUDController.sharedController.show()
         
         let accessToken:NSString = t!.isEmpty ? defaults.stringForKey(Constants.kDefaultsAccessTokenKey)! : t!
         let deviceId:String = d!
@@ -222,7 +222,7 @@ class APIController {
         let queue = NSOperationQueue()
         NSURLConnection.sendAsynchronousRequest(request, queue: queue, completionHandler: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
             dispatch_async(dispatch_get_main_queue(), {
-                HUDController.sharedController.hide()
+//                HUDController.sharedController.hide()
                 
                 if let httpResponse = response as? NSHTTPURLResponse {
                     if (httpResponse.statusCode == 200) {
@@ -243,19 +243,19 @@ class APIController {
     func testAccessToken(userName: String, accessToken: String, failure fail : (NSError? -> ())? = { error in println(error) }, success succeed: (() -> ())? = nil) {
         
         if (!accessToken.isEmpty) {
-            HUDController.sharedController.contentView = HUDContentView.ProgressView()
-            HUDController.sharedController.show()
+//            HUDController.sharedController.contentView = HUDContentView.ProgressView()
+//            HUDController.sharedController.show()
             
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
                 let m_authUrl = self.authUrl.stringByAppendingFormat("?access_token=%@", accessToken)
                 let jsonData = NSData(contentsOfURL: NSURL(string: m_authUrl)!)
                 
                 dispatch_async(dispatch_get_main_queue(), {
-                    HUDController.sharedController.hide()
+//                    HUDController.sharedController.hide()
                     
                     if (jsonData != nil) {
                         var error: NSError?
-                        let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData!, options: nil, error: &error) as NSDictionary
+                        let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData!, options: nil, error: &error) as! NSDictionary
                         
                         if (userName == jsonDict.valueForKey("_id") as? String) {
                             self.defaults.setValue(accessToken, forKey: Constants.kDefaultsAccessTokenKey)

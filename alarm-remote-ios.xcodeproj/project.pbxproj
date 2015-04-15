@@ -7,110 +7,64 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9600C7EC1A4B182F00263E81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600C7EB1A4B182F00263E81 /* AppDelegate.swift */; };
-		9600C7EF1A4B182F00263E81 /* alarm_remote_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9600C7ED1A4B182F00263E81 /* alarm_remote_ios.xcdatamodeld */; };
-		9600C7F11A4B182F00263E81 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600C7F01A4B182F00263E81 /* MainViewController.swift */; };
-		9600C7F41A4B182F00263E81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9600C7F21A4B182F00263E81 /* Main.storyboard */; };
-		9600C7F61A4B182F00263E81 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9600C7F51A4B182F00263E81 /* Images.xcassets */; };
-		9600C7F91A4B182F00263E81 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9600C7F71A4B182F00263E81 /* LaunchScreen.xib */; };
-		9600C8051A4B182F00263E81 /* alarm_remote_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600C8041A4B182F00263E81 /* alarm_remote_iosTests.swift */; };
-		9600C80F1A4B246D00263E81 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600C80E1A4B246D00263E81 /* Constants.swift */; };
-		9600C8111A4B26A700263E81 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600C8101A4B26A700263E81 /* AuthViewController.swift */; };
-		962EE8651A4EDB3100B98B90 /* SelectDeviceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962EE8641A4EDB3100B98B90 /* SelectDeviceTableViewController.swift */; };
-		964C08DA1A6C5B25005C6EF3 /* Date+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C08D91A6C5B25005C6EF3 /* Date+Time.swift */; };
-		966005FF1A5F48C9000B732B /* EditAlarmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966005FE1A5F48C9000B732B /* EditAlarmTableViewController.swift */; };
-		96643C671A5205090082AB7E /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96643C661A5205090082AB7E /* APIController.swift */; };
-		966DF85E1A4CE87800F8DF1A /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C18ED61A4CC68400A17BB8 /* PKHUD.framework */; };
-		966DF85F1A4CE87800F8DF1A /* PKHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96C18ED61A4CC68400A17BB8 /* PKHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9690CDFF1A52297100433E61 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96643C661A5205090082AB7E /* APIController.swift */; };
-		9690CE011A522ADB00433E61 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600C80E1A4B246D00263E81 /* Constants.swift */; };
-		96E00DB81A50E144007D8B55 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00DB71A50E144007D8B55 /* AlarmTableViewCell.swift */; };
+		9621A62F1ADE6AE2007BEEB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9621A62E1ADE6AE2007BEEB3 /* AppDelegate.swift */; };
+		9621A6311ADE6AE2007BEEB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9621A6301ADE6AE2007BEEB3 /* ViewController.swift */; };
+		9621A6341ADE6AE2007BEEB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9621A6321ADE6AE2007BEEB3 /* Main.storyboard */; };
+		9621A6361ADE6AE2007BEEB3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9621A6351ADE6AE2007BEEB3 /* Images.xcassets */; };
+		9621A6391ADE6AE2007BEEB3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9621A6371ADE6AE2007BEEB3 /* LaunchScreen.xib */; };
+		9621A6451ADE6AE2007BEEB3 /* alarm_remote_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9621A6441ADE6AE2007BEEB3 /* alarm_remote_iosTests.swift */; };
+		96D6E11D1ADF1E9800D529A2 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6E1151ADF1E9800D529A2 /* AlarmTableViewCell.swift */; };
+		96D6E11E1ADF1E9800D529A2 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6E1161ADF1E9800D529A2 /* APIController.swift */; };
+		96D6E11F1ADF1E9800D529A2 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6E1171ADF1E9800D529A2 /* AuthViewController.swift */; };
+		96D6E1201ADF1E9800D529A2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6E1181ADF1E9800D529A2 /* Constants.swift */; };
+		96D6E1211ADF1E9800D529A2 /* Date+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6E1191ADF1E9800D529A2 /* Date+Time.swift */; };
+		96D6E1221ADF1E9800D529A2 /* EditAlarmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6E11A1ADF1E9800D529A2 /* EditAlarmTableViewController.swift */; };
+		96D6E1231ADF1E9800D529A2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6E11B1ADF1E9800D529A2 /* MainViewController.swift */; };
+		96D6E1241ADF1E9800D529A2 /* SelectDeviceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6E11C1ADF1E9800D529A2 /* SelectDeviceTableViewController.swift */; };
+		96D6E13F1ADF260500D529A2 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6E1161ADF1E9800D529A2 /* APIController.swift */; };
+		96D6E1401ADF261200D529A2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6E1181ADF1E9800D529A2 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9600C7FF1A4B182F00263E81 /* PBXContainerItemProxy */ = {
+		9621A63F1ADE6AE2007BEEB3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9600C7DE1A4B182E00263E81 /* Project object */;
+			containerPortal = 9621A6211ADE6AE2007BEEB3 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 9600C7E51A4B182F00263E81;
+			remoteGlobalIDString = 9621A6281ADE6AE2007BEEB3;
 			remoteInfo = "alarm-remote-ios";
-		};
-		966DF8601A4CE87800F8DF1A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 96C18ECE1A4CC68400A17BB8 /* PKHUD.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = F996321D19514FD8001F73CA;
-			remoteInfo = PKHUD;
-		};
-		96C18ED31A4CC68400A17BB8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 96C18ECE1A4CC68400A17BB8 /* PKHUD.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F99631FC19514FAC001F73CA;
-			remoteInfo = "PKHUD Demo";
-		};
-		96C18ED51A4CC68400A17BB8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 96C18ECE1A4CC68400A17BB8 /* PKHUD.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F996321E19514FD8001F73CA;
-			remoteInfo = PKHUD;
-		};
-		96C18ED71A4CC68E00A17BB8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 96C18ECE1A4CC68400A17BB8 /* PKHUD.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = F996321D19514FD8001F73CA;
-			remoteInfo = PKHUD;
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		966DF8621A4CE87900F8DF1A /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				966DF85F1A4CE87800F8DF1A /* PKHUD.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		9600C7E61A4B182F00263E81 /* alarm-remote-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "alarm-remote-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9600C7EA1A4B182F00263E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9600C7EB1A4B182F00263E81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9600C7EE1A4B182F00263E81 /* alarm_remote_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = alarm_remote_ios.xcdatamodel; sourceTree = "<group>"; };
-		9600C7F01A4B182F00263E81 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		9600C7F31A4B182F00263E81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9600C7F51A4B182F00263E81 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		9600C7F81A4B182F00263E81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		9600C7FE1A4B182F00263E81 /* alarm-remote-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "alarm-remote-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9600C8031A4B182F00263E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9600C8041A4B182F00263E81 /* alarm_remote_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alarm_remote_iosTests.swift; sourceTree = "<group>"; };
-		9600C80E1A4B246D00263E81 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		9600C8101A4B26A700263E81 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
-		962EE8641A4EDB3100B98B90 /* SelectDeviceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDeviceTableViewController.swift; sourceTree = "<group>"; };
-		964C08D91A6C5B25005C6EF3 /* Date+Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Time.swift"; sourceTree = "<group>"; };
-		966005FE1A5F48C9000B732B /* EditAlarmTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAlarmTableViewController.swift; sourceTree = "<group>"; };
-		96643C661A5205090082AB7E /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
-		96C18ECE1A4CC68400A17BB8 /* PKHUD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PKHUD.xcodeproj; path = PKHUD/PKHUD.xcodeproj; sourceTree = "<group>"; };
-		96E00DB71A50E144007D8B55 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
+		9621A6291ADE6AE2007BEEB3 /* alarm-remote-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "alarm-remote-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9621A62D1ADE6AE2007BEEB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9621A62E1ADE6AE2007BEEB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9621A6301ADE6AE2007BEEB3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9621A6331ADE6AE2007BEEB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9621A6351ADE6AE2007BEEB3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9621A6381ADE6AE2007BEEB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		9621A63E1ADE6AE2007BEEB3 /* alarm-remote-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "alarm-remote-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9621A6431ADE6AE2007BEEB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9621A6441ADE6AE2007BEEB3 /* alarm_remote_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alarm_remote_iosTests.swift; sourceTree = "<group>"; };
+		96D6E1151ADF1E9800D529A2 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
+		96D6E1161ADF1E9800D529A2 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		96D6E1171ADF1E9800D529A2 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		96D6E1181ADF1E9800D529A2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		96D6E1191ADF1E9800D529A2 /* Date+Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Time.swift"; sourceTree = "<group>"; };
+		96D6E11A1ADF1E9800D529A2 /* EditAlarmTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAlarmTableViewController.swift; sourceTree = "<group>"; };
+		96D6E11B1ADF1E9800D529A2 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		96D6E11C1ADF1E9800D529A2 /* SelectDeviceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDeviceTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9600C7E31A4B182F00263E81 /* Frameworks */ = {
+		9621A6261ADE6AE2007BEEB3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				966DF85E1A4CE87800F8DF1A /* PKHUD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9600C7FB1A4B182F00263E81 /* Frameworks */ = {
+		9621A63B1ADE6AE2007BEEB3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -120,142 +74,127 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9600C7DD1A4B182E00263E81 = {
+		9621A6201ADE6AE2007BEEB3 = {
 			isa = PBXGroup;
 			children = (
-				96C18ECE1A4CC68400A17BB8 /* PKHUD.xcodeproj */,
-				9600C7E81A4B182F00263E81 /* alarm-remote-ios */,
-				9600C8011A4B182F00263E81 /* alarm-remote-iosTests */,
-				9600C7E71A4B182F00263E81 /* Products */,
+				9621A62B1ADE6AE2007BEEB3 /* alarm-remote-ios */,
+				9621A6411ADE6AE2007BEEB3 /* alarm-remote-iosTests */,
+				9621A62A1ADE6AE2007BEEB3 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		9600C7E71A4B182F00263E81 /* Products */ = {
+		9621A62A1ADE6AE2007BEEB3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9600C7E61A4B182F00263E81 /* alarm-remote-ios.app */,
-				9600C7FE1A4B182F00263E81 /* alarm-remote-iosTests.xctest */,
+				9621A6291ADE6AE2007BEEB3 /* alarm-remote-ios.app */,
+				9621A63E1ADE6AE2007BEEB3 /* alarm-remote-iosTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9600C7E81A4B182F00263E81 /* alarm-remote-ios */ = {
+		9621A62B1ADE6AE2007BEEB3 /* alarm-remote-ios */ = {
 			isa = PBXGroup;
 			children = (
-				9600C7ED1A4B182F00263E81 /* alarm_remote_ios.xcdatamodeld */,
-				96E00DB71A50E144007D8B55 /* AlarmTableViewCell.swift */,
-				96643C661A5205090082AB7E /* APIController.swift */,
-				9600C7EB1A4B182F00263E81 /* AppDelegate.swift */,
-				9600C8101A4B26A700263E81 /* AuthViewController.swift */,
-				9600C80E1A4B246D00263E81 /* Constants.swift */,
-				964C08D91A6C5B25005C6EF3 /* Date+Time.swift */,
-				966005FE1A5F48C9000B732B /* EditAlarmTableViewController.swift */,
-				9600C7F51A4B182F00263E81 /* Images.xcassets */,
-				9600C7F71A4B182F00263E81 /* LaunchScreen.xib */,
-				9600C7F21A4B182F00263E81 /* Main.storyboard */,
-				9600C7F01A4B182F00263E81 /* MainViewController.swift */,
-				962EE8641A4EDB3100B98B90 /* SelectDeviceTableViewController.swift */,
-				9600C7E91A4B182F00263E81 /* Supporting Files */,
+				9621A62E1ADE6AE2007BEEB3 /* AppDelegate.swift */,
+				9621A6301ADE6AE2007BEEB3 /* ViewController.swift */,
+				9621A6321ADE6AE2007BEEB3 /* Main.storyboard */,
+				9621A6351ADE6AE2007BEEB3 /* Images.xcassets */,
+				9621A6371ADE6AE2007BEEB3 /* LaunchScreen.xib */,
+				96D6E1151ADF1E9800D529A2 /* AlarmTableViewCell.swift */,
+				96D6E1161ADF1E9800D529A2 /* APIController.swift */,
+				96D6E1171ADF1E9800D529A2 /* AuthViewController.swift */,
+				96D6E1181ADF1E9800D529A2 /* Constants.swift */,
+				96D6E1191ADF1E9800D529A2 /* Date+Time.swift */,
+				96D6E11A1ADF1E9800D529A2 /* EditAlarmTableViewController.swift */,
+				96D6E11B1ADF1E9800D529A2 /* MainViewController.swift */,
+				96D6E11C1ADF1E9800D529A2 /* SelectDeviceTableViewController.swift */,
+				9621A62C1ADE6AE2007BEEB3 /* Supporting Files */,
 			);
 			path = "alarm-remote-ios";
 			sourceTree = "<group>";
 		};
-		9600C7E91A4B182F00263E81 /* Supporting Files */ = {
+		9621A62C1ADE6AE2007BEEB3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9600C7EA1A4B182F00263E81 /* Info.plist */,
+				9621A62D1ADE6AE2007BEEB3 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		9600C8011A4B182F00263E81 /* alarm-remote-iosTests */ = {
+		9621A6411ADE6AE2007BEEB3 /* alarm-remote-iosTests */ = {
 			isa = PBXGroup;
 			children = (
-				9600C8041A4B182F00263E81 /* alarm_remote_iosTests.swift */,
-				9600C8021A4B182F00263E81 /* Supporting Files */,
+				9621A6441ADE6AE2007BEEB3 /* alarm_remote_iosTests.swift */,
+				9621A6421ADE6AE2007BEEB3 /* Supporting Files */,
 			);
 			path = "alarm-remote-iosTests";
 			sourceTree = "<group>";
 		};
-		9600C8021A4B182F00263E81 /* Supporting Files */ = {
+		9621A6421ADE6AE2007BEEB3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9600C8031A4B182F00263E81 /* Info.plist */,
+				9621A6431ADE6AE2007BEEB3 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		96C18ECF1A4CC68400A17BB8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				96C18ED41A4CC68400A17BB8 /* PKHUD Demo.app */,
-				96C18ED61A4CC68400A17BB8 /* PKHUD.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9600C7E51A4B182F00263E81 /* alarm-remote-ios */ = {
+		9621A6281ADE6AE2007BEEB3 /* alarm-remote-ios */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9600C8081A4B182F00263E81 /* Build configuration list for PBXNativeTarget "alarm-remote-ios" */;
+			buildConfigurationList = 9621A6481ADE6AE2007BEEB3 /* Build configuration list for PBXNativeTarget "alarm-remote-ios" */;
 			buildPhases = (
-				9600C7E21A4B182F00263E81 /* Sources */,
-				9600C7E31A4B182F00263E81 /* Frameworks */,
-				9600C7E41A4B182F00263E81 /* Resources */,
-				961B08141A9BF630009C511D /* ShellScript */,
-				966DF8621A4CE87900F8DF1A /* Embed Frameworks */,
+				9621A6251ADE6AE2007BEEB3 /* Sources */,
+				9621A6261ADE6AE2007BEEB3 /* Frameworks */,
+				9621A6271ADE6AE2007BEEB3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				96C18ED81A4CC68E00A17BB8 /* PBXTargetDependency */,
-				966DF8611A4CE87800F8DF1A /* PBXTargetDependency */,
 			);
 			name = "alarm-remote-ios";
 			productName = "alarm-remote-ios";
-			productReference = 9600C7E61A4B182F00263E81 /* alarm-remote-ios.app */;
+			productReference = 9621A6291ADE6AE2007BEEB3 /* alarm-remote-ios.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9600C7FD1A4B182F00263E81 /* alarm-remote-iosTests */ = {
+		9621A63D1ADE6AE2007BEEB3 /* alarm-remote-iosTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9600C80B1A4B182F00263E81 /* Build configuration list for PBXNativeTarget "alarm-remote-iosTests" */;
+			buildConfigurationList = 9621A64B1ADE6AE2007BEEB3 /* Build configuration list for PBXNativeTarget "alarm-remote-iosTests" */;
 			buildPhases = (
-				9600C7FA1A4B182F00263E81 /* Sources */,
-				9600C7FB1A4B182F00263E81 /* Frameworks */,
-				9600C7FC1A4B182F00263E81 /* Resources */,
+				9621A63A1ADE6AE2007BEEB3 /* Sources */,
+				9621A63B1ADE6AE2007BEEB3 /* Frameworks */,
+				9621A63C1ADE6AE2007BEEB3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9600C8001A4B182F00263E81 /* PBXTargetDependency */,
+				9621A6401ADE6AE2007BEEB3 /* PBXTargetDependency */,
 			);
 			name = "alarm-remote-iosTests";
 			productName = "alarm-remote-iosTests";
-			productReference = 9600C7FE1A4B182F00263E81 /* alarm-remote-iosTests.xctest */;
+			productReference = 9621A63E1ADE6AE2007BEEB3 /* alarm-remote-iosTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		9600C7DE1A4B182E00263E81 /* Project object */ = {
+		9621A6211ADE6AE2007BEEB3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Jason Kusnier";
 				TargetAttributes = {
-					9600C7E51A4B182F00263E81 = {
-						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = W5X24H3PJV;
+					9621A6281ADE6AE2007BEEB3 = {
+						CreatedOnToolsVersion = 6.3;
 					};
-					9600C7FD1A4B182F00263E81 = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = 9600C7E51A4B182F00263E81;
+					9621A63D1ADE6AE2007BEEB3 = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = 9621A6281ADE6AE2007BEEB3;
 					};
 				};
 			};
-			buildConfigurationList = 9600C7E11A4B182E00263E81 /* Build configuration list for PBXProject "alarm-remote-ios" */;
+			buildConfigurationList = 9621A6241ADE6AE2007BEEB3 /* Build configuration list for PBXProject "alarm-remote-ios" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -263,52 +202,29 @@
 				en,
 				Base,
 			);
-			mainGroup = 9600C7DD1A4B182E00263E81;
-			productRefGroup = 9600C7E71A4B182F00263E81 /* Products */;
+			mainGroup = 9621A6201ADE6AE2007BEEB3;
+			productRefGroup = 9621A62A1ADE6AE2007BEEB3 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 96C18ECF1A4CC68400A17BB8 /* Products */;
-					ProjectRef = 96C18ECE1A4CC68400A17BB8 /* PKHUD.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
-				9600C7E51A4B182F00263E81 /* alarm-remote-ios */,
-				9600C7FD1A4B182F00263E81 /* alarm-remote-iosTests */,
+				9621A6281ADE6AE2007BEEB3 /* alarm-remote-ios */,
+				9621A63D1ADE6AE2007BEEB3 /* alarm-remote-iosTests */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		96C18ED41A4CC68400A17BB8 /* PKHUD Demo.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "PKHUD Demo.app";
-			remoteRef = 96C18ED31A4CC68400A17BB8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		96C18ED61A4CC68400A17BB8 /* PKHUD.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = PKHUD.framework;
-			remoteRef = 96C18ED51A4CC68400A17BB8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
-		9600C7E41A4B182F00263E81 /* Resources */ = {
+		9621A6271ADE6AE2007BEEB3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9600C7F41A4B182F00263E81 /* Main.storyboard in Resources */,
-				9600C7F91A4B182F00263E81 /* LaunchScreen.xib in Resources */,
-				9600C7F61A4B182F00263E81 /* Images.xcassets in Resources */,
+				9621A6341ADE6AE2007BEEB3 /* Main.storyboard in Resources */,
+				9621A6391ADE6AE2007BEEB3 /* LaunchScreen.xib in Resources */,
+				9621A6361ADE6AE2007BEEB3 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9600C7FC1A4B182F00263E81 /* Resources */ = {
+		9621A63C1ADE6AE2007BEEB3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -317,83 +233,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		961B08141A9BF630009C511D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "versionnum=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nnewsubversion=`echo $versionnum | awk -F \".\" '{print $3}'`\nnewsubversion=$(($newsubversion + 1))\nnewversionstring=`echo $versionnum | awk -F \".\" '{print $1 \".\" $2 \".'$newsubversion'\" }'`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $newversionstring\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n\nbuild=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuild=$(($build + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $build\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n\n#/usr/libexec/PlistBuddy \"$SRCROOT/alarm-remote-ios/Settings.bundle/Root.plist\" -c \"Set PreferenceSpecifiers:4:DefaultValue $newversionstring ($build)\"";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		9600C7E21A4B182F00263E81 /* Sources */ = {
+		9621A6251ADE6AE2007BEEB3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9600C7F11A4B182F00263E81 /* MainViewController.swift in Sources */,
-				9600C7EC1A4B182F00263E81 /* AppDelegate.swift in Sources */,
-				964C08DA1A6C5B25005C6EF3 /* Date+Time.swift in Sources */,
-				9600C8111A4B26A700263E81 /* AuthViewController.swift in Sources */,
-				962EE8651A4EDB3100B98B90 /* SelectDeviceTableViewController.swift in Sources */,
-				96643C671A5205090082AB7E /* APIController.swift in Sources */,
-				966005FF1A5F48C9000B732B /* EditAlarmTableViewController.swift in Sources */,
-				9600C7EF1A4B182F00263E81 /* alarm_remote_ios.xcdatamodeld in Sources */,
-				96E00DB81A50E144007D8B55 /* AlarmTableViewCell.swift in Sources */,
-				9600C80F1A4B246D00263E81 /* Constants.swift in Sources */,
+				96D6E1211ADF1E9800D529A2 /* Date+Time.swift in Sources */,
+				96D6E11E1ADF1E9800D529A2 /* APIController.swift in Sources */,
+				9621A6311ADE6AE2007BEEB3 /* ViewController.swift in Sources */,
+				96D6E1241ADF1E9800D529A2 /* SelectDeviceTableViewController.swift in Sources */,
+				96D6E1221ADF1E9800D529A2 /* EditAlarmTableViewController.swift in Sources */,
+				96D6E11F1ADF1E9800D529A2 /* AuthViewController.swift in Sources */,
+				9621A62F1ADE6AE2007BEEB3 /* AppDelegate.swift in Sources */,
+				96D6E1231ADF1E9800D529A2 /* MainViewController.swift in Sources */,
+				96D6E11D1ADF1E9800D529A2 /* AlarmTableViewCell.swift in Sources */,
+				96D6E1201ADF1E9800D529A2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9600C7FA1A4B182F00263E81 /* Sources */ = {
+		9621A63A1ADE6AE2007BEEB3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9690CDFF1A52297100433E61 /* APIController.swift in Sources */,
-				9600C8051A4B182F00263E81 /* alarm_remote_iosTests.swift in Sources */,
-				9690CE011A522ADB00433E61 /* Constants.swift in Sources */,
+				96D6E13F1ADF260500D529A2 /* APIController.swift in Sources */,
+				9621A6451ADE6AE2007BEEB3 /* alarm_remote_iosTests.swift in Sources */,
+				96D6E1401ADF261200D529A2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		9600C8001A4B182F00263E81 /* PBXTargetDependency */ = {
+		9621A6401ADE6AE2007BEEB3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9600C7E51A4B182F00263E81 /* alarm-remote-ios */;
-			targetProxy = 9600C7FF1A4B182F00263E81 /* PBXContainerItemProxy */;
-		};
-		966DF8611A4CE87800F8DF1A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = PKHUD;
-			targetProxy = 966DF8601A4CE87800F8DF1A /* PBXContainerItemProxy */;
-		};
-		96C18ED81A4CC68E00A17BB8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = PKHUD;
-			targetProxy = 96C18ED71A4CC68E00A17BB8 /* PBXContainerItemProxy */;
+			target = 9621A6281ADE6AE2007BEEB3 /* alarm-remote-ios */;
+			targetProxy = 9621A63F1ADE6AE2007BEEB3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9600C7F21A4B182F00263E81 /* Main.storyboard */ = {
+		9621A6321ADE6AE2007BEEB3 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9600C7F31A4B182F00263E81 /* Base */,
+				9621A6331ADE6AE2007BEEB3 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		9600C7F71A4B182F00263E81 /* LaunchScreen.xib */ = {
+		9621A6371ADE6AE2007BEEB3 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9600C7F81A4B182F00263E81 /* Base */,
+				9621A6381ADE6AE2007BEEB3 /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -401,7 +291,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		9600C8061A4B182F00263E81 /* Debug */ = {
+		9621A6461ADE6AE2007BEEB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -420,9 +310,11 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -435,7 +327,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -444,7 +336,7 @@
 			};
 			name = Debug;
 		};
-		9600C8071A4B182F00263E81 /* Release */ = {
+		9621A6471ADE6AE2007BEEB3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -462,17 +354,19 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -480,31 +374,27 @@
 			};
 			name = Release;
 		};
-		9600C8091A4B182F00263E81 /* Debug */ = {
+		9621A6491ADE6AE2007BEEB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "alarm-remote-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		9600C80A1A4B182F00263E81 /* Release */ = {
+		9621A64A1ADE6AE2007BEEB3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "alarm-remote-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
-		9600C80C1A4B182F00263E81 /* Debug */ = {
+		9621A64C1ADE6AE2007BEEB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -523,7 +413,7 @@
 			};
 			name = Debug;
 		};
-		9600C80D1A4B182F00263E81 /* Release */ = {
+		9621A64D1ADE6AE2007BEEB3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -541,47 +431,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9600C7E11A4B182E00263E81 /* Build configuration list for PBXProject "alarm-remote-ios" */ = {
+		9621A6241ADE6AE2007BEEB3 /* Build configuration list for PBXProject "alarm-remote-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9600C8061A4B182F00263E81 /* Debug */,
-				9600C8071A4B182F00263E81 /* Release */,
+				9621A6461ADE6AE2007BEEB3 /* Debug */,
+				9621A6471ADE6AE2007BEEB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9600C8081A4B182F00263E81 /* Build configuration list for PBXNativeTarget "alarm-remote-ios" */ = {
+		9621A6481ADE6AE2007BEEB3 /* Build configuration list for PBXNativeTarget "alarm-remote-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9600C8091A4B182F00263E81 /* Debug */,
-				9600C80A1A4B182F00263E81 /* Release */,
+				9621A6491ADE6AE2007BEEB3 /* Debug */,
+				9621A64A1ADE6AE2007BEEB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9600C80B1A4B182F00263E81 /* Build configuration list for PBXNativeTarget "alarm-remote-iosTests" */ = {
+		9621A64B1ADE6AE2007BEEB3 /* Build configuration list for PBXNativeTarget "alarm-remote-iosTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9600C80C1A4B182F00263E81 /* Debug */,
-				9600C80D1A4B182F00263E81 /* Release */,
+				9621A64C1ADE6AE2007BEEB3 /* Debug */,
+				9621A64D1ADE6AE2007BEEB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		9600C7ED1A4B182F00263E81 /* alarm_remote_ios.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				9600C7EE1A4B182F00263E81 /* alarm_remote_ios.xcdatamodel */,
-			);
-			currentVersion = 9600C7EE1A4B182F00263E81 /* alarm_remote_ios.xcdatamodel */;
-			path = alarm_remote_ios.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
-	rootObject = 9600C7DE1A4B182E00263E81 /* Project object */;
+	rootObject = 9621A6211ADE6AE2007BEEB3 /* Project object */;
 }
