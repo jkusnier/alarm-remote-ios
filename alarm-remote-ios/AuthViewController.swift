@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import PKHUD
 
 class AuthViewController: UIViewController, UITextFieldDelegate {
 
