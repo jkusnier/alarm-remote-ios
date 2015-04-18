@@ -1,0 +1,3 @@
+[submodule "PKHUD"]
+	path = PKHUD
+	url = https://github.com/pkluz/PKHUD.git

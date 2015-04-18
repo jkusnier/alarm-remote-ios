@@ -12,6 +12,7 @@
 		9621A6361ADE6AE2007BEEB3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9621A6351ADE6AE2007BEEB3 /* Images.xcassets */; };
 		9621A6391ADE6AE2007BEEB3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9621A6371ADE6AE2007BEEB3 /* LaunchScreen.xib */; };
 		9621A6451ADE6AE2007BEEB3 /* alarm_remote_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9621A6441ADE6AE2007BEEB3 /* alarm_remote_iosTests.swift */; };
+		9652E6471AE28E1900C7865D /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9652E6461AE28E0C00C7865D /* PKHUD.framework */; };
 		96D6E11D1ADF1E9800D529A2 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6E1151ADF1E9800D529A2 /* AlarmTableViewCell.swift */; };
 		96D6E11E1ADF1E9800D529A2 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6E1161ADF1E9800D529A2 /* APIController.swift */; };
 		96D6E11F1ADF1E9800D529A2 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6E1171ADF1E9800D529A2 /* AuthViewController.swift */; };
@@ -32,6 +33,27 @@
 			remoteGlobalIDString = 9621A6281ADE6AE2007BEEB3;
 			remoteInfo = "alarm-remote-ios";
 		};
+		9652E6431AE28E0C00C7865D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9652E63E1AE28E0C00C7865D /* PKHUD.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F99631FC19514FAC001F73CA;
+			remoteInfo = "PKHUD Demo";
+		};
+		9652E6451AE28E0C00C7865D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9652E63E1AE28E0C00C7865D /* PKHUD.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F996321E19514FD8001F73CA;
+			remoteInfo = PKHUD;
+		};
+		9652E6481AE28E1D00C7865D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9652E63E1AE28E0C00C7865D /* PKHUD.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F996321D19514FD8001F73CA;
+			remoteInfo = PKHUD;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +66,7 @@
 		9621A63E1ADE6AE2007BEEB3 /* alarm-remote-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "alarm-remote-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9621A6431ADE6AE2007BEEB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9621A6441ADE6AE2007BEEB3 /* alarm_remote_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alarm_remote_iosTests.swift; sourceTree = "<group>"; };
+		9652E63E1AE28E0C00C7865D /* PKHUD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PKHUD.xcodeproj; path = PKHUD/PKHUD.xcodeproj; sourceTree = "<group>"; };
 		96D6E1151ADF1E9800D529A2 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
 		96D6E1161ADF1E9800D529A2 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		96D6E1171ADF1E9800D529A2 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9652E6471AE28E1900C7865D /* PKHUD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +99,7 @@
 		9621A6201ADE6AE2007BEEB3 = {
 			isa = PBXGroup;
 			children = (
+				9652E63E1AE28E0C00C7865D /* PKHUD.xcodeproj */,
 				9621A62B1ADE6AE2007BEEB3 /* alarm-remote-ios */,
 				9621A6411ADE6AE2007BEEB3 /* alarm-remote-iosTests */,
 				9621A62A1ADE6AE2007BEEB3 /* Products */,
@@ -135,6 +160,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		9652E63F1AE28E0C00C7865D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9652E6441AE28E0C00C7865D /* PKHUD Demo.app */,
+				9652E6461AE28E0C00C7865D /* PKHUD.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,6 +183,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9652E6491AE28E1D00C7865D /* PBXTargetDependency */,
 			);
 			name = "alarm-remote-ios";
 			productName = "alarm-remote-ios";
@@ -202,6 +237,12 @@
 			mainGroup = 9621A6201ADE6AE2007BEEB3;
 			productRefGroup = 9621A62A1ADE6AE2007BEEB3 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9652E63F1AE28E0C00C7865D /* Products */;
+					ProjectRef = 9652E63E1AE28E0C00C7865D /* PKHUD.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				9621A6281ADE6AE2007BEEB3 /* alarm-remote-ios */,
@@ -209,6 +250,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9652E6441AE28E0C00C7865D /* PKHUD Demo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "PKHUD Demo.app";
+			remoteRef = 9652E6431AE28E0C00C7865D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9652E6461AE28E0C00C7865D /* PKHUD.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PKHUD.framework;
+			remoteRef = 9652E6451AE28E0C00C7865D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9621A6271ADE6AE2007BEEB3 /* Resources */ = {
@@ -264,6 +322,11 @@
 			isa = PBXTargetDependency;
 			target = 9621A6281ADE6AE2007BEEB3 /* alarm-remote-ios */;
 			targetProxy = 9621A63F1ADE6AE2007BEEB3 /* PBXContainerItemProxy */;
+		};
+		9652E6491AE28E1D00C7865D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PKHUD;
+			targetProxy = 9652E6481AE28E1D00C7865D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
